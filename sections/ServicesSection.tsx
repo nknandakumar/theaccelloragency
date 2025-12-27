@@ -63,7 +63,7 @@ const services: ServiceCard[] = [
     title: "Stay tuned!",
     bgClassName: "bg-[#070707]",
     isComingSoon: true,
-    details: ["More services coming soon"],
+    details: ["More services coming soon.."],
   },
 ];
 
