@@ -12,7 +12,7 @@ export default function ContactPage() {
     <div className="mx-auto max-w-6xl px-4 py-16">
       <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Let’s talk.</h1>
       <p className="mt-3 text-white/70 max-w-2xl">
-        Whether you need a new website or a better one — we’re ready. Tell us about your project and let's build something that works.
+        Whether you need a new website or a better one — we’re ready. Tell us about your project and let&apos;s build something that works.
       </p>
 
       <div className="mt-10 grid gap-8 md:grid-cols-2 items-start">
