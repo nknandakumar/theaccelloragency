@@ -3,7 +3,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
-import { IconBrandYoutubeFilled } from "@tabler/icons-react";
+import Image from "next/image";
 
 
 export default function FeaturesSectionDemo() {
@@ -108,13 +108,14 @@ export const SkeletonOne = () => {
       <div className="w-full  p-5  mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
         <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
           {/* TODO */}
-          <img
-            src="https://i.pinimg.com/736x/bf/a5/6e/bfa56e92b26cd44c1273dd76ce254209.jpg"
-            alt="header"
-            width={800}
-            height={800}
-            className="h-full w-full aspect-square object-cover object-left-top rounded-sm"
-          />
+          <div className="relative h-full w-full aspect-square rounded-sm overflow-hidden">
+            <Image
+              src="https://i.pinimg.com/736x/bf/a5/6e/bfa56e92b26cd44c1273dd76ce254209.jpg"
+              alt="header"
+              fill
+              className="object-cover object-left-top"
+            />
+          </div>
         </div>
       </div>
 
@@ -132,13 +133,14 @@ export const SkeletonThree = () => {
       <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
         <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
          
-          <img
-            src="https://i.pinimg.com/1200x/2c/6d/ad/2c6dad0a0607e4eed98db8d9ae6a1bd3.jpg"
-            alt="header"
-            width={800}
-            height={800}
-            className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none  transition-all duration-200"
-          />
+          <div className="relative h-full w-full aspect-square rounded-sm overflow-hidden">
+            <Image
+              src="https://i.pinimg.com/1200x/2c/6d/ad/2c6dad0a0607e4eed98db8d9ae6a1bd3.jpg"
+              alt="header"
+              fill
+              className="object-cover object-center blur-none transition-all duration-200"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -149,16 +151,22 @@ export const SkeletonTwo = () => {
   return (
     <div className="relative h-full w-full overflow-hidden rounded-md">
       <div className="grid h-full w-full grid-rows-2 gap-2">
-        <img
-          src="https://i.pinimg.com/736x/5f/67/bd/5f67bd1c030b719a58046a16736c496f.jpg"
-          alt="Visitors contacting 1"
-          className="h-full w-full object-cover object-center"
-        />
-        <img
-          src="https://i.pinimg.com/1200x/bc/60/b6/bc60b68c27647bdc1e9e4b650c106968.jpg"
-          alt="Visitors contacting 2"
-          className="h-full w-full object-cover object-center"
-        />
+        <div className="relative h-full w-full overflow-hidden rounded-md">
+          <Image
+            src="https://i.pinimg.com/736x/5f/67/bd/5f67bd1c030b719a58046a16736c496f.jpg"
+            alt="Visitors contacting 1"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+        <div className="relative h-full w-full overflow-hidden rounded-md">
+          <Image
+            src="https://i.pinimg.com/1200x/bc/60/b6/bc60b68c27647bdc1e9e4b650c106968.jpg"
+            alt="Visitors contacting 2"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
       </div>
     </div>
   );
