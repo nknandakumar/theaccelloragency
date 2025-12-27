@@ -27,7 +27,7 @@ export default function HeroSection() {
         </div>
 
       </div>
-      <ContainerScroll titleComponent={""}>{/* Pass title as a prop */}</ContainerScroll>
+      <ContainerScroll />
     </section>
   );
 }
