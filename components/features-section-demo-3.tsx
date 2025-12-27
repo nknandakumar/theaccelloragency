@@ -3,7 +3,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import createGlobe from "cobe";
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+import { IconBrandYoutubeFilled } from "@tabler/icons-react";
 
 
 export default function FeaturesSectionDemo() {
@@ -54,12 +54,10 @@ export default function FeaturesSectionDemo() {
       <div className="relative ">
         <div className="grid grid-cols-1 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
           {features.map((feature) => (
-            <FeatureCard key={feature.title} className={feature.className}>
+            <FeatureCard key={feature.title} className={`${feature.className} mt-6 sm:mt-0 `}>
               <FeatureTitle>{feature.title}</FeatureTitle>
               <FeatureDescription>{feature.description}</FeatureDescription>
-              <div className="mt-4 w-full flex-1 min-h-[240px] sm:min-h-[280px]">
-                {feature.skeleton}
-              </div>
+              <div className=" h-full w-full">{feature.skeleton}</div>
             </FeatureCard>
           ))}
         </div>
@@ -76,12 +74,7 @@ const FeatureCard = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={cn(
-        `p-4 sm:p-8 relative overflow-hidden flex flex-col`,
-        className
-      )}
-    >
+    <div className={cn(`p-4 sm:p-8 relative overflow-hidden`, className)}>
       {children}
     </div>
   );
@@ -111,18 +104,17 @@ const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
 
 export const SkeletonOne = () => {
   return (
-    <div className="relative flex py-6 px-2 gap-10 h-full min-h-[240px]">
+    <div className="relative flex py-8 px-2 gap-10 h-full">
       <div className="w-full  p-5  mx-auto bg-white dark:bg-neutral-900 shadow-2xl group h-full">
         <div className="flex flex-1 w-full h-full flex-col space-y-2  ">
           {/* TODO */}
-          <div className="relative h-[200px] sm:h-full w-full rounded-sm overflow-hidden">
-            <Image
-              src="https://i.pinimg.com/736x/bf/a5/6e/bfa56e92b26cd44c1273dd76ce254209.jpg"
-              alt="header"
-              fill
-              className="object-cover object-left-top"
-            />
-          </div>
+          <img
+            src="https://i.pinimg.com/736x/bf/a5/6e/bfa56e92b26cd44c1273dd76ce254209.jpg"
+            alt="header"
+            width={800}
+            height={800}
+            className="h-full w-full aspect-square object-cover object-left-top rounded-sm"
+          />
         </div>
       </div>
 
@@ -134,18 +126,19 @@ export const SkeletonOne = () => {
 
 export const SkeletonThree = () => {
   return (
-    <div className="relative flex gap-10 h-full min-h-[240px] group/image">
+    <div      
+      className="relative flex gap-10  h-full group/image"
+    >
       <div className="w-full  mx-auto bg-transparent dark:bg-transparent group h-full">
         <div className="flex flex-1 w-full h-full flex-col space-y-2  relative">
          
-          <div className="relative h-[220px] sm:h-full w-full rounded-sm overflow-hidden">
-            <Image
-              src="https://i.pinimg.com/1200x/2c/6d/ad/2c6dad0a0607e4eed98db8d9ae6a1bd3.jpg"
-              alt="header"
-              fill
-              className="object-cover object-center blur-none transition-all duration-200"
-            />
-          </div>
+          <img
+            src="https://i.pinimg.com/1200x/2c/6d/ad/2c6dad0a0607e4eed98db8d9ae6a1bd3.jpg"
+            alt="header"
+            width={800}
+            height={800}
+            className="h-full w-full aspect-square object-cover object-center rounded-sm blur-none  transition-all duration-200"
+          />
         </div>
       </div>
     </div>
@@ -154,24 +147,18 @@ export const SkeletonThree = () => {
 
 export const SkeletonTwo = () => {
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-md min-h-[240px]">
+    <div className="relative h-full w-full mb-1 overflow-hidden rounded-md">
       <div className="grid h-full w-full grid-rows-2 gap-2">
-        <div className="relative min-h-[115px] h-full w-full overflow-hidden rounded-md">
-          <Image
-            src="https://i.pinimg.com/736x/5f/67/bd/5f67bd1c030b719a58046a16736c496f.jpg"
-            alt="Visitors contacting 1"
-            fill
-            className="object-cover object-center"
-          />
-        </div>
-        <div className="relative min-h-[115px] h-full w-full overflow-hidden rounded-md">
-          <Image
-            src="https://i.pinimg.com/1200x/bc/60/b6/bc60b68c27647bdc1e9e4b650c106968.jpg"
-            alt="Visitors contacting 2"
-            fill
-            className="object-cover object-center"
-          />
-        </div>
+        <img
+          src="https://i.pinimg.com/736x/5f/67/bd/5f67bd1c030b719a58046a16736c496f.jpg"
+          alt="Visitors contacting 1"
+          className="h-full w-full object-cover object-center"
+        />
+        <img
+          src="https://i.pinimg.com/1200x/bc/60/b6/bc60b68c27647bdc1e9e4b650c106968.jpg"
+          alt="Visitors contacting 2"
+          className="h-full w-full object-cover object-center"
+        />
       </div>
     </div>
   );
@@ -179,8 +166,8 @@ export const SkeletonTwo = () => {
 
 export const SkeletonFour = () => {
   return (
-    <div className="h-60 md:h-60 flex flex-col items-center relative bg-transparent dark:bg-transparent mt-6 overflow-hidden">
-      <Globe className="absolute -right-6 md:-right-10 -bottom-24 md:-bottom-72" />
+    <div className="h-60 md:h-60  flex flex-col items-center relative bg-transparent dark:bg-transparent mt-10">
+      <Globe className="absolute -right-10 md:-right-10 -bottom-80 md:-bottom-72" />
     </div>
   );
 };
@@ -191,52 +178,43 @@ export const Globe = ({ className }: { className?: string }) => {
   useEffect(() => {
     let phi = 0;
 
-    const prefersReducedMotion =
-      typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-    const isSmallScreen = typeof window !== "undefined" && window.innerWidth < 768;
-
-    if (prefersReducedMotion || isSmallScreen) return;
-
     if (!canvasRef.current) return;
 
-    let globe: { destroy: () => void } | null = null;
-    try {
-      globe = createGlobe(canvasRef.current, {
-        devicePixelRatio: Math.min(2, window.devicePixelRatio || 1),
-        width: 520 * 2,
-        height: 520 * 2,
-        phi: 0,
-        theta: 0,
-        dark: 1,
-        diffuse: 1.2,
-        mapSamples: 8000,
-        mapBrightness: 6,
-        baseColor: [0.3, 0.3, 0.3],
-        markerColor: [0.1, 0.8, 1],
-        glowColor: [1, 1, 1],
-        markers: [
-          { location: [37.7595, -122.4367], size: 0.03 },
-          { location: [40.7128, -74.006], size: 0.1 },
-        ],
-        onRender: (state) => {
-          state.phi = phi;
-          phi += 0.01;
-        },
-      });
-    } catch {
-      globe = null;
-    }
+    const globe = createGlobe(canvasRef.current, {
+      devicePixelRatio: 2,
+      width: 600 * 2,
+      height: 600 * 2,
+      phi: 0,
+      theta: 0,
+      dark: 1,
+      diffuse: 1.2,
+      mapSamples: 16000,
+      mapBrightness: 6,
+      baseColor: [0.3, 0.3, 0.3],
+      markerColor: [0.1, 0.8, 1],
+      glowColor: [1, 1, 1],
+      markers: [
+        // longitude latitude
+        { location: [37.7595, -122.4367], size: 0.03 },
+        { location: [40.7128, -74.006], size: 0.1 },
+      ],
+      onRender: (state) => {
+        // Called on every animation frame.
+        // `state` will be an empty object, return updated params.
+        state.phi = phi;
+        phi += 0.01;
+      },
+    });
 
     return () => {
-      globe?.destroy?.();
+      globe.destroy();
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      style={{ width: 520, height: 520, maxWidth: "100%", aspectRatio: 1 }}
+      style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }}
       className={className}
     />
   );
