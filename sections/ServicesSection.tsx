@@ -1,56 +1,145 @@
-const services = [
-  "Website Design",
-  "Website Development",
-  "Business Websites",
-  "Landing Pages",
-  "Google Business Setup",
-  "Performance & SEO Basics",
+import Image from "next/image";
+
+type ServiceCard = {
+  title: string;
+  image?: string;
+  bgClassName: string;
+  details?: string[];
+  isComingSoon?: boolean;
+};
+
+const services: ServiceCard[] = [
+  {
+    title: "Website & Landing Page",
+    image: "/website1.png",
+    bgClassName: "bg-[#bfc4f3]",
+    details: [
+      "SaaS websites that convert",
+      "High-velocity GTM landing pages",
+      "Funnel pages for campaigns",
+    ],
+  },
+  {
+    title: "Brand System",
+    image: "/branding.png",
+    bgClassName: "bg-[#f0efe8]",
+    details: [
+      "Brand identity & guidelines",
+      "Social + marketing templates",
+      "Consistent visual language",
+    ],
+  },
+  {
+    title: "Product Design",
+    image: "/web2.png",
+    bgClassName: "bg-[#e7ebee]",
+    details: [
+      "UI/UX for web apps",
+      "Design systems",
+      "Interactive prototypes",
+    ],
+  },
+  {
+    title: "Growth Assets",
+    image: "/leads.png",
+    bgClassName: "bg-[#f6f6f6]",
+    details: [
+      "Ads & creatives",
+      "Email + social assets",
+      "Lead magnets & PDFs",
+    ],
+  },
+  {
+    title: "Development",
+    image: "/googlebp.png",
+    bgClassName: "bg-[#e6e6e6]",
+    details: [
+      "Fast, responsive builds",
+      "SEO-ready structure",
+      "Smooth animations & polish",
+    ],
+  },
+  {
+    title: "Stay tuned!",
+    bgClassName: "bg-[#070707]",
+    isComingSoon: true,
+    details: ["More services coming soon"],
+  },
 ];
 
 export default function ServicesSection() {
   return (
     <section className="py-24 sm:py-28 bg-[#050505] text-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight text-white/90">
-            What we
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#FF4A03] to-[#FF7A1E]">
-              build for you
-            </span>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-white/90">
+            What We Create
           </h2>
-          <p className="mt-6 text-lg text-white/60 max-w-2xl mx-auto">
-            Built for speed. Designed for clarity. Optimized for growth.
+          <p className="text-sm sm:text-base text-white/55 max-w-md sm:text-right">
+            Everything a business needs to move faster, convert cleaner, and scale profitably.
           </p>
         </div>
 
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
+        <div className="mt-12 grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
             <div
-              key={service}
-              className="group relative rounded-2xl border border-white/10 bg-[#0b0b0b] p-8 transition-all duration-300 hover:border-[#FF4A03]/30 hover:bg-[#0b0b0b]/80"
+              key={service.title}
+              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5"
             >
-              {/* Number indicator */}
-              <div className="absolute top-4 right-4 text-6xl font-bold text-white/5 group-hover:text-white/10 transition-colors duration-300">
-                {String(index + 1).padStart(2, '0')}
-              </div>
-
-              {/* Service content */}
-              <div className="relative">
-                <div className="w-12 h-12 rounded-xl bg-[#FF4A03]/10 flex items-center justify-center mb-6">
-                  <div className="w-6 h-6 rounded-full bg-[#FF4A03]" />
+              <div className={`relative h-[360px] ${service.bgClassName}`}>
+                <div className="absolute left-6 top-6 z-20 text-sm font-semibold text-black/80">
+                  {service.isComingSoon ? (
+                    <span className="text-white/70">{service.title}</span>
+                  ) : (
+                    service.title
+                  )}
                 </div>
-                
-                <h3 className="text-xl font-semibold text-white/90 mb-3">
-                  {service}
-                </h3>
-                
-                <p className="text-sm text-white/50 leading-relaxed">
-                  Professional solutions tailored to your business needs with modern best practices and cutting-edge technology.
-                </p>
-              </div>
 
-              {/* Hover effect border */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#FF4A03]/20 to-[#FF7A1E]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                {service.isComingSoon ? (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full border border-white/15 bg-white/5">
+                      <div className="text-3xl leading-none text-white/60">+</div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="absolute inset-x-0 bottom-0 top-14">
+                    <div className="relative h-full w-full">
+                      <Image
+                        src={service.image ?? "/website1.png"}
+                        alt={service.title}
+                        fill
+                        className="object-cover object-center"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-black/0" />
+
+                <div className="absolute inset-0 z-30 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-black/65" />
+
+                  <div className="relative h-full w-full p-6">
+                    <div className="text-2xl font-semibold text-white">
+                      {service.title}
+                    </div>
+
+                    {service.details?.length ? (
+                      <div className="mt-6 space-y-4 text-white/90">
+                        {service.details.map((d) => (
+                          <div key={d} className="flex items-start gap-3">
+                            <div className="mt-1 h-4 w-4 shrink-0 rounded-md bg-white/10 text-white/80 flex items-center justify-center">
+                              <span className="text-xs">•</span>
+                            </div>
+                            <div className="text-base font-medium">{d}</div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
