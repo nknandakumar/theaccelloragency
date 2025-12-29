@@ -4,6 +4,11 @@ import Image from "next/image";
 import "./globals.css";
 import FinalCtaSection from "@/sections/FinalCtaSection";
 import FooterSection from "@/sections/FooterSection";
+import MobileBottomNav from "@/components/MobileBottomNav";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 const interTight = Inter_Tight({
   variable: "--font-inter-tight",
@@ -16,6 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "TheAccellor – Design. Development. Growth.",
   description: "Websites designed to grow your business.",
   icons: {
@@ -43,14 +49,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body
-        className={`${interTight.variable} ${inter.variable} antialiased min-h-dvh bg-[#050505]`}
+        className={`${interTight.variable} ${inter.variable} antialiased min-h-dvh bg-[#050505] pb-24 md:pb-0`}
       >
         <header className="sticky top-0 z-50 ">
-          <div className="mx-auto max-w-6xl px-4 py-12 flex justify-center">
-            <nav className="flex w-full items-center justify-between gap-4 rounded-full border border-white/15 bg-black/80 px-6 py-3 text-sm text-white/80 shadow-lg shadow-black/40">
+          <div className="mx-auto max-w-5xl px-2 py-2 flex justify-center">
+            <nav className="flex w-full items-center justify-between gap-4 rounded-xl border border-white/15 bg-black/80 px-3 py-2 text-sm text-white/80 shadow-lg shadow-black/40">
               <a
                 href="/"
-                className="flex h-9 w-9 items-center justify-center rounded-full  overflow-hidden"
+                className="flex h-12 w-12 items-center justify-center rounded-lg  overflow-hidden"
                 aria-label="TheAccellor home"
               >
                 <Image
@@ -58,11 +64,11 @@ export default function RootLayout({
                   alt="TheAccellor"
                   width={36}
                   height={36}
-                  className="h-9 w-9 object-contain"
+                  className="h-12 w-12 object-contain"
                   priority
                 />
               </a>
-              <div className="hidden md:flex items-center gap-8">
+              <div className="hidden md:flex text-xl items-center gap-8">
                 <a href="/" className="hover:text-white transition-colors">
                   Home
                 </a>
@@ -76,7 +82,7 @@ export default function RootLayout({
               </div>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-3 rounded-full bg-white px-4 py-1.5 text-xs sm:text-sm font-medium text-black shadow-md hover:bg-zinc-100 transition-colors"
+                className="inline-flex items-center gap-3 rounded-lg bg-white px-4 py-3 text-lg sm:text-sm font-medium text-black shadow-md hover:bg-zinc-100 transition-colors"
               >
                 
                 <span className="whitespace-nowrap">Start a Project</span>
@@ -87,6 +93,8 @@ export default function RootLayout({
         <main>{children}</main>
         <FinalCtaSection />
         <FooterSection />
+
+        <MobileBottomNav />
 
       </body>
     </html>
