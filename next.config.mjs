@@ -21,6 +21,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "framerusercontent.com",
         pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        pathname: "/**",
       }
 
     ],

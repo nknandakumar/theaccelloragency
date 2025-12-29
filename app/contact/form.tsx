@@ -7,7 +7,7 @@ export default function ContactForm() {
 
   if (status === "sent") {
     return (
-      <p className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4">
+      <p className="rounded-2xl border border-white/10 bg-white/5 p-4">
         Thanks! We’ll get back to you shortly.
       </p>
     );
@@ -15,7 +15,7 @@ export default function ContactForm() {
 
   return (
     <form
-      className="mt-8 space-y-4"
+      className="space-y-4"
       onSubmit={(e) => {
         e.preventDefault();
         setStatus("sent");

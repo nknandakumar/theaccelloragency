@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 import { cn } from "@/lib/utils";
-import createGlobe from "cobe";
-import { useEffect, useRef } from "react";
-import { IconBrandYoutubeFilled } from "@tabler/icons-react";
+ 
 
 
 export default function FeaturesSectionDemo() {
@@ -11,30 +9,30 @@ export default function FeaturesSectionDemo() {
     {
       title: "A professional website",
       description:
-        "Create a stunning, responsive website that showcases your brand and captivates your audience with modern design and seamless functionality.",
+        "Modern, fast, and conversion-focused.",
       skeleton: <SkeletonOne />,
       className:
         "col-span-1 lg:col-span-4 border-b lg:border-r dark:border-neutral-800",
     },
     {
-      title: "Visitors actually contacting you",
+      title: "Your brand showing up everywhere",
       description:
-        "Real leads, real growth",
+        "When people search for solutions",
       skeleton: <SkeletonTwo />,
       className: "border-b col-span-1 lg:col-span-2 dark:border-neutral-800",
     },
     {
       title: "A strong Google Business Profile",
       description:
-        "Boost your local visibility and attract more customers with a well-optimized Google Business Profile that showcases your services and builds trust.",
+        "Boost your local visibility, attract more customers, builds trust.",
       skeleton: <SkeletonThree />,
       className:
         "col-span-1 lg:col-span-3 lg:border-r  dark:border-neutral-800",
     },
     {
-      title: "Your brand showing up everywhere",
+      title: "Visitors actually contacting you ",
       description:
-        "Ensure your business appears prominently in local searches and Google Maps to capture more customer attention, drive more traffic, and convert leads into customers effortlessly.",
+        "Real leads, real growth ",
       skeleton: <SkeletonFour />,
       className: "col-span-1 lg:col-span-3 border-b lg:border-none",
     },
@@ -82,7 +80,7 @@ const FeatureCard = ({
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <p className=" max-w-5xl mx-auto text-left tracking-tight text-black dark:text-white text-xl md:text-2xl md:leading-snug">
+    <p className=" max-w-5xl mx-auto text-left  text-black dark:text-white text-xl md:text-3xl font-bold md:leading-snug">
       {children}
     </p>
   );
@@ -148,17 +146,13 @@ export const SkeletonThree = () => {
 export const SkeletonTwo = () => {
   return (
     <div className="relative h-full w-full mb-1 overflow-hidden rounded-md">
-      <div className="grid h-full w-full grid-rows-2 gap-2">
+      <div className="grid h-full w-full ">
         <img
-          src="https://i.pinimg.com/736x/5f/67/bd/5f67bd1c030b719a58046a16736c496f.jpg"
+          src="https://i.pinimg.com/736x/52/1b/0c/521b0c7005ed9d3cc48f7d1ccdc590a7.jpg"
           alt="Visitors contacting 1"
           className="h-full w-full object-cover object-center"
         />
-        <img
-          src="https://i.pinimg.com/1200x/bc/60/b6/bc60b68c27647bdc1e9e4b650c106968.jpg"
-          alt="Visitors contacting 2"
-          className="h-full w-full object-cover object-center"
-        />
+        
       </div>
     </div>
   );
@@ -166,56 +160,14 @@ export const SkeletonTwo = () => {
 
 export const SkeletonFour = () => {
   return (
-    <div className="h-60 md:h-60  flex flex-col items-center relative bg-transparent dark:bg-transparent mt-10">
-      <Globe className="absolute -right-10 md:-right-10 -bottom-80 md:-bottom-72" />
+    <div className="relative h-full w-full mb-1 overflow-hidden rounded-md">
+      <div className="grid h-full w-full">
+        <img
+          src="https://i.pinimg.com/736x/d7/a6/1b/d7a61be0e71a018636929b33b0172687.jpg"
+          alt="Your brand showing up everywhere"
+          className="h-full w-full object-cover object-center"
+        />
+      </div>
     </div>
-  );
-};
-
-export const Globe = ({ className }: { className?: string }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    let phi = 0;
-
-    if (!canvasRef.current) return;
-
-    const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: 600 * 2,
-      height: 600 * 2,
-      phi: 0,
-      theta: 0,
-      dark: 1,
-      diffuse: 1.2,
-      mapSamples: 16000,
-      mapBrightness: 6,
-      baseColor: [0.3, 0.3, 0.3],
-      markerColor: [0.1, 0.8, 1],
-      glowColor: [1, 1, 1],
-      markers: [
-        // longitude latitude
-        { location: [37.7595, -122.4367], size: 0.03 },
-        { location: [40.7128, -74.006], size: 0.1 },
-      ],
-      onRender: (state) => {
-        // Called on every animation frame.
-        // `state` will be an empty object, return updated params.
-        state.phi = phi;
-        phi += 0.01;
-      },
-    });
-
-    return () => {
-      globe.destroy();
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }}
-      className={className}
-    />
   );
 };
