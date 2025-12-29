@@ -56,7 +56,7 @@ export default function RootLayout({
             <nav className="flex w-full items-center justify-between gap-4 rounded-xl border border-white/15 bg-black/80 px-3 py-2 text-sm text-white/80 shadow-lg shadow-black/40">
               <a
                 href="/"
-                className="flex h-12 w-12 items-center justify-center rounded-lg  overflow-hidden"
+                className="flex sm:h-12 sm:w-12 h-10 w-10 items-center justify-center rounded-lg  overflow-hidden"
                 aria-label="TheAccellor home"
               >
                 <Image
@@ -82,7 +82,7 @@ export default function RootLayout({
               </div>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-3 rounded-lg bg-white px-4 py-3 text-lg sm:text-sm font-medium text-black shadow-md hover:bg-zinc-100 transition-colors"
+                className="inline-flex items-center gap-3 rounded-lg bg-white sm:px-4 sm:py-3 px-2 py-2 text-sm sm:text-lg font-medium text-black shadow-md hover:bg-zinc-100 transition-colors"
               >
                 
                 <span className="whitespace-nowrap">Start a Project</span>

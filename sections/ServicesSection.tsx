@@ -101,11 +101,11 @@ export default function ServicesSection() {
                 <div className="absolute inset-0 z-30 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
                   <div className="absolute inset-0 bg-black/65" />
 
-                  <div className="relative h-full w-full p-6">
+                  <div className="relative flex h-full w-full flex-col justify-end p-6">
                     
 
                     {service.details?.length ? (
-                      <div className="mt-6 space-y-4 text-white/90">
+                      <div className="space-y-4 text-white/90">
                         {service.details.map((d) => (
                           <div key={d} className="flex items-start gap-3">
                             <div className="mt-1 h-4 w-4 shrink-0 rounded-md bg-white/10 text-white/80 flex items-center justify-center">

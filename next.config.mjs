@@ -16,7 +16,13 @@ const nextConfig = {
         protocol: "https",
         hostname: "d2pas86kykpvmq.cloudfront.net",
         pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "framerusercontent.com",
+        pathname: "/**",
       }
+
     ],
   },
 };

@@ -39,7 +39,7 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-              <p className="mt-2 text-sm  text-white/60">300+ Reviews on Clutch</p>
+              
             </div>
           </div>
 
@@ -48,7 +48,7 @@ export default function TestimonialsSection() {
               (TESTIMONIALS)
             </p>
             <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight text-white/90">
-              We deliver data-driven and result-focused deliverables. Hear what they say about us.
+              Hear what people say about us.
             </h2>
           </div>
         </div>

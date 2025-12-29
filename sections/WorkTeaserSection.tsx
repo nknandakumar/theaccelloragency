@@ -53,7 +53,7 @@ export default function WorkTeaserSection() {
               key={project.id}
               className="flex flex-col lg:flex-row gap-6 sm:gap-8 rounded-3xl bg-[#0b0b0b] border border-white/5 overflow-hidden"
             >
-              <div className="flex-1 px-6 sm:px-8 py-6 sm:py-8 flex flex-col justify-between">
+              <div className="order-2 lg:order-1 flex-1 px-6 sm:px-8 py-6 sm:py-8 flex flex-col justify-between">
                 <div>
                   
                   <div className="flex items-center gap-3 mb-4">
@@ -62,7 +62,7 @@ export default function WorkTeaserSection() {
                     >
                       {project.badgeIcon}
                     </div>
-                    <span className="text-2xl uppercase tracking-[0.25em] font-extrabold text-white/50">
+                    <span className="text-2xl uppercase  font-extrabold text-white/50">
                       {project.label}
                     </span>
                   </div>
@@ -78,14 +78,14 @@ export default function WorkTeaserSection() {
                 <div className="mt-6">
                   <Link
                     href="/work"
-                    className="inline-flex items-center justify-center rounded-xl bg-white text-black px-8 py-3 text-sm sm:text-base font-medium shadow-[0_18px_40px_rgba(0,0,0,0.45)] hover:bg-neutral-100 transition"
+                    className="inline-flex items-center justify-center rounded-xl bg-white text-black px-8 py-3 text-sm sm:text-base font-medium shadow-[0_18px_40px_rgba(0,0,0,0.45)] hover:bg-neutral-100 transition w-full sm:w-auto"
                   >
                     View Details
                   </Link>
                 </div>
               </div>
 
-              <div className="relative lg:w-1/2 min-h-[220px] sm:min-h-[460px]">
+              <div className="order-1 lg:order-2 relative lg:w-1/2 min-h-[220px] sm:min-h-[460px]">
                 <div className="absolute inset-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -102,7 +102,7 @@ export default function WorkTeaserSection() {
         <div className="mt-10 flex justify-center">
           <Link
             href="/work"
-            className="text-sm uppercase font-bold sm:text-base text-[#FF4A03] hover:text-[#FF7A1E] border border-white/50 px-12 py-4 rounded-xl "
+            className="text-sm uppercase font-bold sm:text-base text-[#FF4A03] hover:text-[#FF7A1E] border border-white/50 px-12 py-4 rounded-xl w-full sm:w-auto text-center"
           >
             View all projects
           </Link>

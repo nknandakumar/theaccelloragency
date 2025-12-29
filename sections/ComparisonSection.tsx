@@ -2,7 +2,7 @@ import { ChevronRight } from "lucide-react";
 
 export default function ComparisonSection() {
   return (
-    <section className="pb-24 sm:pb-28 bg-[#050505] text-white">
+    <section className="pb-24 -mt-36 sm:pb-28 bg-[#050505] text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-start">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight max-w-4xl mx-auto">
           We know choosing the right agency

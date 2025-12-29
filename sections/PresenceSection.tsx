@@ -8,9 +8,7 @@ export default function PresenceSection() {
           to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4A03] to-[#FF7A1E]">impossible to ignore.</span>
         </h2>
 
-        <p className="mt-4 text-sm sm:text-base text-white/60 max-w-xl mx-auto">
-          One website builds trust in seconds. The other loses visitors in three.
-        </p>
+        
 
         <div className="mt-10 grid gap-4 sm:gap-6 sm:grid-cols-3">
           {["No website.", "No Google presence.", "No trust."].map((text, idx) => (
@@ -27,8 +25,8 @@ export default function PresenceSection() {
         </div>
 
         <div className="mt-16 flex justify-center">
-          <div className="flex flex-col items-center gap-2 text-white/60 text-xs">
-            <span>Scroll</span>
+          <div className="flex flex-col items-center  text-white/60 text-xs">
+             <span className="block h-10 w-px bg-white/30" />
             <span className="block h-10 w-px bg-white/30" />
             <span className="text-lg">↧</span>
           </div>

@@ -31,45 +31,45 @@ export default function FooterSection() {
           <div className="flex items-start justify-between gap-10">
             <div className="grid w-full gap-10 sm:grid-cols-3 max-w-3xl">
               <div>
-                <div className="text-xs uppercase tracking-wider text-white/40">Navigation</div>
+                <div className="text-lg uppercase tracking-wider text-white/40">{"( Navigation )"}</div>
                 <div className="mt-4 space-y-2">
-                  <Link className="block text-sm text-white/80 hover:text-white" href="/about">
-                    About
-                  </Link>
-                  <Link className="block text-sm text-white/80 hover:text-white" href="/work">
+                  <Link className="block text-2xl text-white/80 hover:text-white" href="/about">
                     Works
                   </Link>
-                  <Link className="block text-sm text-white/80 hover:text-white" href="/#services">
+                  <Link className="block text-2xl text-white/80 hover:text-white" href="/work">
+                    Contact
+                  </Link>
+                  <Link className="block text-2xl text-white/80 hover:text-white" href="/#services">
                     Services
                   </Link>
-                  <Link className="block text-sm text-white/80 hover:text-white" href="/blog">
+                  <Link className="block text-2xl text-white/80 hover:text-white" href="/blog">
                     Blog
                   </Link>
                 </div>
               </div>
 
               <div>
-                <div className="text-xs uppercase tracking-wider text-white/40">Social</div>
+                <div className="text-lg uppercase tracking-wider text-white/40">{"( Social )"}</div>
                 <div className="mt-4 space-y-2">
-                  <a className="block text-sm text-white/80 hover:text-white" href="#" rel="noreferrer">
+                  <a className="block text-2xl text-white/80 hover:text-white" href="#" rel="noreferrer">
                     Twitter(X)
                   </a>
-                  <a className="block text-sm text-white/80 hover:text-white" href="#" rel="noreferrer">
+                  <a className="block text-2xl text-white/80 hover:text-white" href="#" rel="noreferrer">
                     LinkedIn
                   </a>
-                  <a className="block text-sm text-white/80 hover:text-white" href="#" rel="noreferrer">
-                    Dribbble
+                  <a className="block text-2xl text-white/80 hover:text-white" href="#" rel="noreferrer">
+                    Instagram
                   </a>
                 </div>
               </div>
 
               <div>
-                <div className="text-xs uppercase tracking-wider text-white/40">Legals</div>
+                <div className="text-lg uppercase tracking-wider text-white/40">{"( Legals )"}</div>
                 <div className="mt-4 space-y-2">
-                  <Link className="block text-sm text-white/80 hover:text-white" href="/privacy-policy">
+                  <Link className="block text-2xl text-white/80 hover:text-white" href="/privacy-policy">
                     Privacy Policy
                   </Link>
-                  <Link className="block text-sm text-white/80 hover:text-white" href="/terms-of-service">
+                  <Link className="block text-2xl text-white/80 hover:text-white" href="/terms-of-service">
                     Term of Service
                   </Link>
                 </div>

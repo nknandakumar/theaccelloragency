@@ -5,27 +5,27 @@ import { useEffect, useRef, useState } from 'react';
 export default function ProcessSection() {
   const steps = [
     {
-      step: "STEP 1.",
+      step: "STEP 1",
       title: "Understand",
       desc: "Your business & audience",
     },
     {
-      step: "STEP 2.",
+      step: "STEP 2",
       title: "Design",
       desc: "Clear, conversion-focused layouts",
     },
     {
-      step: "STEP 3.",
+      step: "STEP 3",
       title: "Develop",
       desc: "Fast, responsive, scalable",
     },
     {
-      step: "STEP 4.",
+      step: "STEP 4",
       title: "Launch",
       desc: "Ready for real users",
     },
     {
-      step: "STEP 5.",
+      step: "STEP 5",
       title: "Support",
       desc: "We don't disappear",
     },
@@ -112,17 +112,17 @@ export default function ProcessSection() {
               <div
                 key={step.step}
               >
-                <div className="rounded-3xl border border-white/10 bg-[#0b0b0b] backdrop-blur-sm p-8 sm:p-12">
-                  <div className="text-xs font-semibold tracking-wide text-white/55">
+                <div className="rounded-xl border border-white/10 bg-[#0b0b0b] backdrop-blur-sm p-8 sm:p-12">
+                  <div className="text-2xl font-semibold tracking-wide text-white/55">
                     {step.step}
                     <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-[#FF4A03]" />
                   </div>
 
                   <div className="mt-10">
-                    <h3 className="text-4xl sm:text-5xl font-semibold leading-tight text-white/90">
+                    <h3 className="text-4xl sm:text-6xl font-semibold leading-tight text-white/90">
                       {step.title}
                     </h3>
-                    <p className="mt-6 text-lg leading-relaxed text-white/50 max-w-lg">
+                    <p className="mt-4 text-xl leading-relaxed text-white/50 max-w-lg">
                       {step.desc}
                     </p>
                   </div>
