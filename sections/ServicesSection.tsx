@@ -10,8 +10,8 @@ type ServiceCard = {
 
 const services: ServiceCard[] = [
   {
-    title: "Website & Landing Page",
-    image: "/website1.png",
+    title: "Web Design",
+    image: "https://cdn.dribbble.com/userupload/17139406/file/original-d4b51e9be9976803bfa1bd41239412f8.jpg",
     bgClassName: "bg-[#bfc4f3]",
     details: [
       "SaaS websites that convert",
@@ -20,8 +20,8 @@ const services: ServiceCard[] = [
     ],
   },
   {
-    title: "Brand System",
-    image: "/branding.png",
+    title: "Web Development",
+    image: "https://d2pas86kykpvmq.cloudfront.net/images/mockups/preview/MacBook+Pro+Mockups+vol.3/scene-12.avif",
     bgClassName: "bg-[#f0efe8]",
     details: [
       "Brand identity & guidelines",
@@ -29,29 +29,10 @@ const services: ServiceCard[] = [
       "Consistent visual language",
     ],
   },
-  {
-    title: "Product Design",
-    image: "/web2.png",
-    bgClassName: "bg-[#e7ebee]",
-    details: [
-      "UI/UX for web apps",
-      "Design systems",
-      "Interactive prototypes",
-    ],
-  },
-  {
-    title: "Growth Assets",
-    image: "/leads.png",
-    bgClassName: "bg-[#f6f6f6]",
-    details: [
-      "Ads & creatives",
-      "Email + social assets",
-      "Lead magnets & PDFs",
-    ],
-  },
+
   {
     title: "Development",
-    image: "/googlebp.png",
+    image: "https://d2pas86kykpvmq.cloudfront.net/images/mockups/preview/MacBook+Pro+Mockups+(vol.2)/scene-4.avif",
     bgClassName: "bg-[#e6e6e6]",
     details: [
       "Fast, responsive builds",
@@ -86,8 +67,8 @@ export default function ServicesSection() {
               key={service.title}
               className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5"
             >
-              <div className={`relative h-[360px] ${service.bgClassName}`}>
-                <div className="absolute left-6 top-6 z-20 text-sm font-semibold text-black/80">
+              <div className={`relative h-[460px] `}>
+                <div className="absolute left-6 top-6 z-20 text-xl font-semibold text-white/85">
                   {service.isComingSoon ? (
                     <span className="text-white/70">{service.title}</span>
                   ) : (
@@ -102,7 +83,7 @@ export default function ServicesSection() {
                     </div>
                   </div>
                 ) : (
-                  <div className="absolute inset-x-0 bottom-0 top-14">
+                  <div className="absolute inset-0">
                     <div className="relative h-full w-full">
                       <Image
                         src={service.image ?? "/website1.png"}
@@ -121,9 +102,7 @@ export default function ServicesSection() {
                   <div className="absolute inset-0 bg-black/65" />
 
                   <div className="relative h-full w-full p-6">
-                    <div className="text-2xl font-semibold text-white">
-                      {service.title}
-                    </div>
+                    
 
                     {service.details?.length ? (
                       <div className="mt-6 space-y-4 text-white/90">

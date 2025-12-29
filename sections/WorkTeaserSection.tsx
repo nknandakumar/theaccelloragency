@@ -10,7 +10,7 @@ const projects = [
     badgeBg: "bg-[#FF4A03]",
     badgeIcon: "✴",
     image:
-      "https://images.pexels.com/photos/3768894/pexels-photo-3768894.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://d2pas86kykpvmq.cloudfront.net/images/mockups/preview/MacBook+Pro+Mockups+(vol.2)/scene-9.avif",
   },
   {
     id: "aurora-legal",
@@ -21,7 +21,7 @@ const projects = [
     badgeBg: "bg-[#f5c744]",
     badgeIcon: "◎",
     image:
-      "https://images.pexels.com/photos/37347/office-freelancer-computer-business-37347.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://cdn.dribbble.com/userupload/17139777/file/original-cc9960997a23ed0b3a994ed0a5409abe.jpg?resize=1504x1128&vertical=center",
   },
   {
     id: "stride-fitness",
@@ -32,7 +32,7 @@ const projects = [
     badgeBg: "bg-[#22c55e]",
     badgeIcon: "▢",
     image:
-      "https://images.pexels.com/photos/7991650/pexels-photo-7991650.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://cdn.dribbble.com/userupload/21067234/file/original-e8583d2cd5501b27f57711323d7c4e69.jpg?resize=1504x1003&vertical=center",
   },
 ];
 
@@ -41,10 +41,8 @@ export default function WorkTeaserSection() {
     <section className="py-24 sm:py-28 bg-[#050505] text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <header className="mb-12 sm:mb-14">
-          <p className="text-xs sm:text-sm uppercase tracking-[0.25em] text-white/40">
-            (03) Featured Works
-          </p>
-          <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-semibold">
+          
+          <h2 className="mt-3 text-3xl sm:text-7xl uppercase md:text-5xl font-extrabold">
             Featured Works
           </h2>
         </header>
@@ -64,15 +62,15 @@ export default function WorkTeaserSection() {
                     >
                       {project.badgeIcon}
                     </div>
-                    <span className="text-xs uppercase tracking-[0.25em] text-white/50">
+                    <span className="text-2xl uppercase tracking-[0.25em] font-extrabold text-white/50">
                       {project.label}
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-semibold">
+                  <h3 className="text-xl sm:text-4xl font-semibold">
                     {project.name}
                   </h3>
-                  <p className="mt-3 text-sm sm:text-base text-white/70 max-w-md">
+                  <p className="mt-3 text-sm sm:text-xl text-white/70 max-w-md">
                     {project.description}
                   </p>
                 </div>
@@ -80,7 +78,7 @@ export default function WorkTeaserSection() {
                 <div className="mt-6">
                   <Link
                     href="/work"
-                    className="inline-flex items-center justify-center rounded-full bg-white text-black px-8 py-3 text-sm sm:text-base font-medium shadow-[0_18px_40px_rgba(0,0,0,0.45)] hover:bg-neutral-100 transition"
+                    className="inline-flex items-center justify-center rounded-xl bg-white text-black px-8 py-3 text-sm sm:text-base font-medium shadow-[0_18px_40px_rgba(0,0,0,0.45)] hover:bg-neutral-100 transition"
                   >
                     View Details
                   </Link>
@@ -104,7 +102,7 @@ export default function WorkTeaserSection() {
         <div className="mt-10 flex justify-center">
           <Link
             href="/work"
-            className="text-sm sm:text-base text-white/60 hover:text-white underline-offset-4 hover:underline"
+            className="text-sm uppercase font-bold sm:text-base text-[#FF4A03] hover:text-[#FF7A1E] border border-white/50 px-12 py-4 rounded-xl "
           >
             View all projects
           </Link>
