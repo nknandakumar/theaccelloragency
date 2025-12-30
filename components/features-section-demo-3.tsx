@@ -49,7 +49,7 @@ export default function FeaturesSectionDemo() {
 
         <AnimatedTextMask
           as="p"
-          className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+          className="text-xl lg:text-2xl max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
           lines={[
             <>
               See how TheAccellor can transform{" "}

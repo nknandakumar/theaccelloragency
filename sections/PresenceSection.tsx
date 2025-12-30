@@ -1,6 +1,6 @@
 import AnimatedTextMask from "@/components/AnimatedTextMask";
 import RevealOnScroll from "@/components/RevealOnScroll";
-
+import { Globe, ShieldAlert , EyeOff  } from "lucide-react";
 export default function PresenceSection() {
   return (
     <section className="py-24 sm:py-28 bg-[#050505] text-white">
@@ -29,7 +29,7 @@ export default function PresenceSection() {
             <RevealOnScroll key={text} delay={idx * 0.06}>
               <div className="relative rounded-2xl border border-white/10 bg-gradient-to-b from-[#111111] to-[#111111] sm:from-[#171717] sm:to-[#0b0502] px-6 py-8 flex flex-col items-center justify-center">
                 <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#FF4A03] text-white text-sm font-semibold shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
-                  {idx === 0 ? "👁" : idx === 1 ? "✕" : "🔒"}
+                  {idx === 0 ? <Globe className="h-5 w-5" /> : idx === 1 ? <EyeOff className="h-5 w-5" /> : <ShieldAlert className="h-5 w-5" />}
                 </div>
                 <p className="text-base sm:text-lg font-medium text-white/90">{text}</p>
               </div>

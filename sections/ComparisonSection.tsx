@@ -4,7 +4,7 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 
 export default function ComparisonSection() {
   return (
-    <section className="py-24  sm:py-28 bg-[#050505] text-white">
+    <section className="py-24 md:-mt-66 sm:py-28 bg-[#050505] text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 text-start">
         <AnimatedTextMask
           as="h2"

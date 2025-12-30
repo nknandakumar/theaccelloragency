@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden min-h-screen">
       
-      <div  className="relative z-20 mx-auto max-w-6xl  px-4 pt-12 sm:pt-18 text-center max-[375px]:text-left">
+      <div  className="relative z-20 mx-auto max-w-6xl  px-4 py-12 sm:pt-18 text-center max-[375px]:text-left">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80 mx-auto max-[375px]:mx-0">
           <span className="inline-block h-1.5 w-1.5 text-6xl rounded-full bg-[#FF4A03]" />
           Where Design Meets Results

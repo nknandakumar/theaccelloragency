@@ -34,16 +34,11 @@ export default function WorkTeaserSection() {
                       </span>
                     </div>
 
-                    <AnimatedTextMask
-                      as="h3"
-                      className="text-xl sm:text-4xl font-semibold"
-                      lines={[project.name]}
-                    />
-                    <AnimatedTextMask
-                      as="p"
-                      className="mt-3 text-sm sm:text-xl text-white/70 max-w-md"
-                      lines={[project.teaser?.description ?? project.overview]}
-                    />
+                    <h3 className="text-xl sm:text-4xl font-semibold">{project.name}</h3>
+
+                    <p className="mt-3 text-sm sm:text-xl text-white/70 max-w-md">
+                      {project.teaser?.description ?? project.overview}
+                    </p>
                   </div>
 
                   <div className="mt-6">

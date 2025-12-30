@@ -42,16 +42,8 @@ export default function WorkPage() {
 
                 <div className="mt-4">
                   <Link href={`/work/${p.slug}`} className="block">
-                    <AnimatedTextMask
-                      as="h2"
-                      className="text-xl sm:text-4xl font-semibold text-white/90"
-                      lines={[p.name]}
-                    />
-                    <AnimatedTextMask
-                      as="p"
-                      className="mt-1 text-lg text-white/55"
-                      lines={[p.overview]}
-                    />
+                    <h2 className="text-xl sm:text-4xl font-semibold text-white/90">{p.name}</h2>
+                    <p className="mt-1 text-lg text-white/55">{p.overview}</p>
                   </Link>
 
                   <div className="mt-6">

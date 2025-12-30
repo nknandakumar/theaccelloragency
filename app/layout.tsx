@@ -50,7 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${interTight.variable} ${inter.variable} antialiased min-h-dvh bg-[#050505] pb-24 md:pb-0`}
+        className={`${interTight.variable} ${inter.variable} antialiased min-h-dvh bg-[#050505] pb-16 md:pb-0`}
       >
         <SmoothScrollProvider>
           <header className="sticky top-0 z-50 ">
