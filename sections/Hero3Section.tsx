@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 
 import CardsContainer from "../components/CardsContainer";
+import AnimatedTextMask from "@/components/AnimatedTextMask";
 const Hero3 = () => {
     return (
         <section className="w-full h-[100vh] relative">
@@ -11,7 +12,11 @@ const Hero3 = () => {
                     {/* Left column */}
                     <div className="lg:w-7/12">
                         {/* Headline */}
-                        <h1 className="text-4xl text-center lg:text-left leading-[1.15] md:text-6xl md:leading-[1.05] font-bold">Websites designed to Grow your business.</h1>
+                        <AnimatedTextMask
+                          as="h1"
+                          className="text-4xl text-center lg:text-left leading-[1.15] md:text-6xl md:leading-[1.05] font-bold"
+                          lines={["Websites designed to Grow your business."]}
+                        />
 
                        
                     </div>
@@ -21,7 +26,11 @@ const Hero3 = () => {
 
 
                         {/* Supporting copy */}
-                        <p className="text-base md:text-2xl text-muted-foreground">We design and build websites that attract visitors and turn them into customers, and grow your business.</p>
+                        <AnimatedTextMask
+                          as="p"
+                          className="text-base md:text-2xl text-muted-foreground"
+                          lines={["We design and build websites that attract visitors and turn them into customers, and grow your business."]}
+                        />
 
                         {/* CTAs */}
                         <div className="flex flex-col sm:flex-row gap-3">

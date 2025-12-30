@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import AnimatedTextMask from "@/components/AnimatedTextMask";
 
 export default function ProcessSection() {
   const steps = [
@@ -67,21 +68,25 @@ export default function ProcessSection() {
         <div className="grid gap-10 lg:gap-12 lg:grid-cols-2 items-start">
           {/* Fixed left side */}
           <div className="relative sticky pt-12 top-24 h-fit">
-            <div className="absolute left-[260px] top-2 hidden lg:block text-[10px] uppercase tracking-[0.35em] text-white/40">
+            <div className="absolute  top-2  text-[10px] uppercase tracking-[0.35em] text-white/40">
               (PROCESS)
             </div>
 
-            <h2 className="text-6xl sm:text-7xl md:text-8xl font-semibold leading-[0.9] tracking-tight text-white/80">
-              <span className="block">HOW WE</span>
-              <span className="block">WORK</span>
-            </h2>
+            <AnimatedTextMask
+              as="h2"
+              className="text-5xl lg:text-7xl lg:leading-tight max-w-5xl mx-auto text-start uppercase tracking-tight font-extrabold text-black dark:text-white"
+              lineClassName="block"
+              lines={["HOW WE", "WORK"]}
+            />
 
-            <p className="mt-6 text-sm text-white/50 max-w-xs">
-              A clear, milestone-driven process that keeps you in the loop and moves fast.
-            </p>
+            <AnimatedTextMask
+              as="p"
+              className="mt-4 text-sm text-white/50 max-w-xs"
+              lines={["A clear, milestone-driven process that keeps you in the loop and moves fast."]}
+            />
 
             {/* Progress indicator */}
-            <div className="mt-12 space-y-4">
+            <div className=" hidden md:block mt-12 space-y-4">
               {steps.map((step, index) => (
                 <div
                   key={step.step}
@@ -107,24 +112,32 @@ export default function ProcessSection() {
           </div>
 
           {/* Scrollable right side - all cards here */}
-          <div className="relative space-y-[2vh] py-[10vh] max-w-3xl">
+          <div className="relative space-y-[0.5vh] py-[10vh] max-w-3xl">
             {steps.map((step, index) => (
               <div
                 key={step.step}
               >
-                <div className="rounded-xl border border-white/10 bg-[#0b0b0b] backdrop-blur-sm p-8 sm:p-12">
+                <div
+                  className={`border border-white/10 bg-[#0b0b0b] backdrop-blur-sm p-8 sm:p-12 ${
+                    index === 0 ? "rounded-t-xl" : ""
+                  } ${index === steps.length - 1 ? "rounded-b-xl" : ""}`}
+                >
                   <div className="text-2xl font-semibold tracking-wide text-white/55">
                     {step.step}
                     <span className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-[#FF4A03]" />
                   </div>
 
                   <div className="mt-10">
-                    <h3 className="text-4xl sm:text-6xl font-semibold leading-tight text-white/90">
-                      {step.title}
-                    </h3>
-                    <p className="mt-4 text-xl leading-relaxed text-white/50 max-w-lg">
-                      {step.desc}
-                    </p>
+                    <AnimatedTextMask
+                      as="h3"
+                      className="text-4xl sm:text-6xl font-semibold leading-tight text-white/90"
+                      lines={[step.title]}
+                    />
+                    <AnimatedTextMask
+                      as="p"
+                      className="mt-4 text-xl leading-relaxed text-white/50 max-w-lg"
+                      lines={[step.desc]}
+                    />
                   </div>
                 </div>
               </div>

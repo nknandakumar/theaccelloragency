@@ -2,6 +2,9 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "motion/react";
 
+export const CONTAINER_SCROLL_PREVIEW_SRC =
+  "https://framerusercontent.com/images/dT5S1njJpyHvznBNeTmMAwfBcqQ.png?scale-down-to=2048&width=2848&height=1604";
+
 export const ContainerScroll = ({
   titleComponent,
   children,
@@ -97,7 +100,7 @@ export const Card = ({
       <div className=" h-full w-full  overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl md:p-4 ">
         {children ?? (
           <img
-            src="https://framerusercontent.com/images/dT5S1njJpyHvznBNeTmMAwfBcqQ.png?scale-down-to=2048&width=2848&height=1604"
+            src={CONTAINER_SCROLL_PREVIEW_SRC}
             alt="Container scroll preview"
             className="h-full w-full object-cover"
           />

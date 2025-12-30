@@ -1,6 +1,7 @@
 import ContactForm from "./form";
 import { Instagram, Mail, Phone } from "lucide-react";
 import FAQ from "@/sections/FaqSection";
+import AnimatedTextMask from "@/components/AnimatedTextMask";
 
 export const metadata = {
   title: "Contact | TheAccellor",
@@ -15,10 +16,20 @@ export default function ContactPage() {
       <div className="mt-10 grid gap-8 md:grid-cols-2 items-start">
         {/* Left info */}
         <div className="space-y-6">
-           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">Let’s talk.</h1>
-      <p className="mt-3 text-white/70 max-w-2xl">
-        Whether you need a new website or a better one — <br/> we’re ready. Tell us about your project and let&apos;s build something that works.
-      </p>
+           <AnimatedTextMask
+             as="h1"
+             className="text-4xl sm:text-5xl font-extrabold tracking-tight"
+             lines={["Let’s talk."]}
+           />
+      <AnimatedTextMask
+        as="p"
+        className="mt-3 text-white/70 max-w-2xl"
+        lineClassName="block"
+        lines={[
+          "Whether you need a new website or a better one —",
+          "we’re ready. Tell us about your project and let\'s build something that works.",
+        ]}
+      />
        <div className="flex items-start gap-3">
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10">
               <Instagram className="size-5 text-white/80" />

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { projects, getProject } from "@/lib/projects";
+import AnimatedTextMask from "@/components/AnimatedTextMask";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -33,12 +34,16 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
         <div className="mt-10 flex flex-col lg:flex-row justify-between items-start">
           <div>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl font-semibold tracking-tight text-white/85 leading-[0.9]">
-              {project.name.toUpperCase()}
-            </h1>
-            <p className="mt-4 text-sm sm:text-base text-white/55 max-w-xl">
-              {project.overview}
-            </p>
+            <AnimatedTextMask
+              as="h1"
+              className="text-6xl sm:text-7xl md:text-8xl font-semibold tracking-tight text-white/85 leading-[0.9]"
+              lines={[project.name.toUpperCase()]}
+            />
+            <AnimatedTextMask
+              as="p"
+              className="mt-4 text-sm sm:text-base text-white/55 max-w-xl"
+              lines={[project.overview]}
+            />
           </div>
 
           <div className="space-y-4 pt-6 sm:pt-0 text-sm">
@@ -173,9 +178,11 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
         <div className="mt-16 sm:mt-20">
           <div className="flex items-center justify-between gap-6">
-            <h2 className="text-5xl sm:text-6xl font-semibold tracking-tight text-white/75">
-              MORE WORKS
-            </h2>
+            <AnimatedTextMask
+              as="h2"
+              className="text-5xl sm:text-6xl font-semibold tracking-tight text-white/75"
+              lines={["MORE WORKS"]}
+            />
             <Link
               href="/work"
               className="hidden sm:inline-flex rounded-full border border-white/15 bg-white/5 px-5 py-2 text-xs text-white/80 hover:bg-white/10 transition"

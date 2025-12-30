@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { cn } from "@/lib/utils";
+import AnimatedTextMask from "@/components/AnimatedTextMask";
  
 
 
@@ -40,13 +41,22 @@ export default function FeaturesSectionDemo() {
   return (
     <div className="relative z-20 pb-10 lg:pb-20 max-w-7xl mx-auto">
       <div className="px-8">
-        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
-          Now Imagine This
-        </h4>
+        <AnimatedTextMask
+          as="h4"
+          className="text-4xl lg:text-7xl lg:leading-tight max-w-5xl mx-auto text-center uppercase tracking-tight font-extrabold text-black dark:text-white"
+          lines={["Now Imagine This"]}
+        />
 
-        <p className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
-          See how TheAccellor can transform your online presence with our proven strategies.
-        </p>
+        <AnimatedTextMask
+          as="p"
+          className="text-sm lg:text-base  max-w-2xl  my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300"
+          lines={[
+            <>
+              See how TheAccellor can transform{" "}
+              <span className="text-indigo-400 font-bold">your business</span>.
+            </>,
+          ]}
+        />
       </div>
 
       <div className="relative ">
@@ -80,23 +90,25 @@ const FeatureCard = ({
 
 const FeatureTitle = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <p className=" max-w-5xl mx-auto text-left  text-black dark:text-white text-xl md:text-3xl font-bold md:leading-snug">
-      {children}
-    </p>
+    <AnimatedTextMask
+      as="p"
+      className=" max-w-5xl mx-auto text-left  text-black dark:text-white text-xl md:text-3xl font-bold md:leading-snug"
+      lines={[children]}
+    />
   );
 };
 
 const FeatureDescription = ({ children }: { children?: React.ReactNode }) => {
   return (
-    <p
+    <AnimatedTextMask
+      as="p"
       className={cn(
         "text-sm md:text-base  max-w-4xl text-left mx-auto",
         "text-neutral-500 text-center font-normal dark:text-neutral-300",
         "text-left max-w-sm mx-0 md:text-sm my-2"
       )}
-    >
-      {children}
-    </p>
+      lines={[children]}
+    />
   );
 };
 

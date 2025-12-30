@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { useState } from "react";
+import AnimatedTextMask from "@/components/AnimatedTextMask";
 
 const faqs = [
   {
@@ -35,16 +36,26 @@ export default function FaqSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[1fr,2fr] items-start">
           <div className="lg:pt-4">
-            <h2 className="text-6xl sm:text-7xl md:text-8xl font-semibold tracking-tight text-white/80">
-              FAQ
-            </h2>
-            <p className="mt-6 text-sm text-white/60">
-              Got specific questions?
-              <br />
-              <Link href="/contact" className="text-[#FF4A03] hover:underline underline-offset-4">
-                Contact Us
-              </Link>
-            </p>
+            <AnimatedTextMask
+              as="h2"
+              className="text-4xl lg:text-8xl lg:leading-tight  mx-auto text-start uppercase tracking-tight font-extrabold text-black dark:text-white"
+              lines={["FAQ"]}
+            />
+            <AnimatedTextMask
+              as="p"
+              className="mt-4 text-sm text-white/60"
+              lineClassName="block"
+              lines={[
+                "Got specific questions?",
+                <Link
+                  key="faq_contact"
+                  href="/contact"
+                  className="text-[#FF4A03] hover:underline underline-offset-4"
+                >
+                  Contact Us
+                </Link>,
+              ]}
+            />
           </div>
 
           <div className="space-y-4">

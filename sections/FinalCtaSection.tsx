@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AnimatedTextMask from "@/components/AnimatedTextMask";
 
 export default function FinalCtaSection() {
   return (
@@ -20,15 +21,18 @@ export default function FinalCtaSection() {
           <div className="relative px-6 py-14 sm:px-12 sm:py-16 lg:px-16 lg:py-20 text-center">
      
 
-            <h2 className="mx-auto mt-7 max-w-4xl text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight text-white">
-              Still thinking?
-            </h2>
+            <AnimatedTextMask
+              as="h2"
+              className="mx-auto mt-7 max-w-4xl text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.05] tracking-tight text-white"
+              lines={["Still thinking?"]}
+            />
 
-            <p className="mx-auto mt-5 max-w-2xl text-sm sm:text-base text-white/60">
-              Have a project in mind? We'd love to hear about it.
-              <br />
-              Let's create something great together!
-            </p>
+            <AnimatedTextMask
+              as="p"
+              className="mx-auto mt-5 max-w-2xl text-sm sm:text-base text-white/60"
+              lineClassName="block"
+              lines={["Have a project in mind? We'd love to hear about it.", "Let's create something great together!"]}
+            />
 
             <div className="mt-9 flex justify-center">
               <Link
