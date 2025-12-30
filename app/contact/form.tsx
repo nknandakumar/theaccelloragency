@@ -37,7 +37,7 @@ export default function ContactForm() {
         <label className="block text-sm font-medium">Message</label>
         <textarea rows={5} className="mt-1 w-full h-32 rounded-lg border border-white/10 bg-transparent px-3 py-2 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-[#FF4A03]/40 focus:border-[#FF4A03]/40" placeholder="Tell us about your project goals..." required />
       </div>
-      <button className="w-full rounded-full bg-gradient-to-r from-[#FF4A03] to-[#FF7A1E] px-6 py-3 text-white shadow-lg shadow-orange-500/20">
+      <button className="w-full rounded-xl bg-[#FF4A03] cursor-pointer text-white px-6 py-3 shadow-lg shadow-orange-500/20 hover:bg-[#e64500] transition">
         Start the Conversation
       </button>
     </form>

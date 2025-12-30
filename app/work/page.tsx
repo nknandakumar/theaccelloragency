@@ -19,32 +19,45 @@ export default function WorkPage() {
 
         <div className="mt-12 grid gap-10 sm:grid-cols-2">
           {projects.map((p) => (
-            <Link
+            <article
               key={p.slug}
-              href={`/work/${p.slug}`}
-              className="group block"
+              className="group"
             >
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+              <Link
+                href={`/work/${p.slug}`}
+                className="block relative overflow-hidden rounded-2xl border border-white/10 bg-white/5"
+              >
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src={p.cover ?? "/images/work/midnight.svg"}
+                    src={p.teaser?.image ?? p.cover ?? "/images/work/midnight.svg"}
                     alt={p.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 </div>
-              </div>
+              </Link>
 
               <div className="mt-4">
-                <h2 className="text-xl sm:text-4xl font-semibold text-white/90">
-                  {p.name}
-                </h2>
-                <p className="mt-1 text-lg text-white/55">
-                  {p.overview}
-                </p>
+                <Link href={`/work/${p.slug}`} className="block">
+                  <h2 className="text-xl sm:text-4xl font-semibold text-white/90">
+                    {p.name}
+                  </h2>
+                  <p className="mt-1 text-lg text-white/55">
+                    {p.overview}
+                  </p>
+                </Link>
+
+                <div className="mt-6">
+                  <Link
+                    href={`/work/${p.slug}`}
+                    className="inline-flex items-center justify-center rounded-xl bg-white text-black px-8 py-3 text-sm sm:text-base font-medium shadow-[0_18px_40px_rgba(0,0,0,0.45)] hover:bg-neutral-100 transition w-full sm:w-auto"
+                  >
+                    View Details
+                  </Link>
+                </div>
               </div>
-            </Link>
+            </article>
           ))}
         </div>
       </div>

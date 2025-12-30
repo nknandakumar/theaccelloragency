@@ -7,6 +7,13 @@ export type Project = {
   problem: string;
   approach: string;
   outcome: string;
+  teaser?: {
+    label: string;
+    description: string;
+    badgeBg: string;
+    badgeIcon: string;
+    image: string;
+  };
   cover?: string;
   tags?: string[];
   year?: string;
@@ -33,6 +40,14 @@ export const projects: Project[] = [
     problem: "Low trust and unclear services; no mobile optimization.",
     approach: "Clear information architecture, strong CTAs, fast performance.",
     outcome: "Higher conversion, more calls, better search visibility.",
+    teaser: {
+      label: "01",
+      description: "Conversion-focused local service website built to increase calls and inquiries.",
+      badgeBg: "bg-[#FF4A03]",
+      badgeIcon: "✴",
+      image:
+        "https://d2pas86kykpvmq.cloudfront.net/images/mockups/preview/MacBook+Pro+Mockups+(vol.2)/scene-9.avif",
+    },
     cover: "/images/work/signalwire.svg",
     tags: ["Home Services", "Local SEO", "Lead Gen"],
     year: "2024",
@@ -61,6 +76,14 @@ export const projects: Project[] = [
     problem: "Confusing layout and slow performance.",
     approach: "Simplified content, improved speed, clarified messaging.",
     outcome: "More demo requests and longer session durations.",
+    teaser: {
+      label: "02",
+      description: "A modern fintech website with clearer messaging and improved performance.",
+      badgeBg: "bg-[#f5c744]",
+      badgeIcon: "◎",
+      image:
+        "https://cdn.dribbble.com/userupload/17139777/file/original-cc9960997a23ed0b3a994ed0a5409abe.jpg?resize=1504x1128&vertical=center",
+    },
     cover: "/images/work/midnight.svg",
     tags: ["Fintech", "Performance", "UX"],
     year: "2024",
@@ -83,6 +106,14 @@ export const projects: Project[] = [
     problem: "No Google presence and weak calls-to-action.",
     approach: "SEO basics, clear CTAs, performance enhancements.",
     outcome: "More signups and inquiries from local search.",
+    teaser: {
+      label: "03",
+      description: "A bold landing experience focused on sessions, schedules, and bookings.",
+      badgeBg: "bg-[#22c55e]",
+      badgeIcon: "▢",
+      image:
+        "https://cdn.dribbble.com/userupload/21067234/file/original-e8583d2cd5501b27f57711323d7c4e69.jpg?resize=1504x1003&vertical=center",
+    },
     cover: "/images/work/midnight.svg",
     tags: ["Local", "Brand", "Bookings"],
     year: "2024",

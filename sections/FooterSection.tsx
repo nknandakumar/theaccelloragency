@@ -97,10 +97,12 @@ export default function FooterSection() {
             </button>
           </div>
 
-          <div className="relative mt-14 pb-10 sm:pb-12">
+          <div className="relative mt-14 pb-0 sm:pb-0">
             <div className="absolute inset-x-0 -bottom-3 h-28 bg-gradient-to-t from-[#FF4A03]/35 via-[#FF4A03]/10 to-transparent blur-2xl" />
-            <div className="pointer-events-none select-none text-center text-[20vw] leading-[0.75] font-semibold tracking-tight text-white/15 sm:text-[18vw]">
-              TheAccellor
+            <div className="relative left-1/2 w-screen -translate-x-1/2">
+              <div className="pointer-events-none select-none text-center whitespace-nowrap text-[16vw] leading-[0.85] font-semibold tracking-tight text-white/15 sm:text-[12vw]">
+                TheAccellor
+              </div>
             </div>
           </div>
         </div>

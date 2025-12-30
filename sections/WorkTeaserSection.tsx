@@ -1,42 +1,9 @@
 import Link from "next/link";
-
-const projects = [
-  {
-    id: "noto-cafe",
-    label: "01",
-    name: "Noto Café",
-    description:
-      "A cozy digital home for a neighborhood café, featuring seasonal menus, event updates, and warm visual storytelling.",
-    badgeBg: "bg-[#FF4A03]",
-    badgeIcon: "✴",
-    image:
-      "https://d2pas86kykpvmq.cloudfront.net/images/mockups/preview/MacBook+Pro+Mockups+(vol.2)/scene-9.avif",
-  },
-  {
-    id: "aurora-legal",
-    label: "02",
-    name: "Aurora Legal",
-    description:
-      "A modern, trustworthy website for a boutique law firm, designed to convey professionalism with a human touch.",
-    badgeBg: "bg-[#f5c744]",
-    badgeIcon: "◎",
-    image:
-      "https://cdn.dribbble.com/userupload/17139777/file/original-cc9960997a23ed0b3a994ed0a5409abe.jpg?resize=1504x1128&vertical=center",
-  },
-  {
-    id: "stride-fitness",
-    label: "03",
-    name: "Stride Fitness",
-    description:
-      "A bold landing experience for a boutique fitness studio, focused on sessions, schedules, and easy class booking.",
-    badgeBg: "bg-[#22c55e]",
-    badgeIcon: "▢",
-    image:
-      "https://cdn.dribbble.com/userupload/21067234/file/original-e8583d2cd5501b27f57711323d7c4e69.jpg?resize=1504x1003&vertical=center",
-  },
-];
+import { projects } from "@/lib/projects";
 
 export default function WorkTeaserSection() {
+  const featured = projects.filter((p) => !!p.teaser).slice(0, 3);
+
   return (
     <section className="py-24 sm:py-28 bg-[#050505] text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -48,9 +15,9 @@ export default function WorkTeaserSection() {
         </header>
 
         <div className="space-y-8 sm:space-y-10">
-          {projects.map((project) => (
+          {featured.map((project) => (
             <article
-              key={project.id}
+              key={project.slug}
               className="flex flex-col lg:flex-row gap-6 sm:gap-8 rounded-3xl bg-[#0b0b0b] border border-white/5 overflow-hidden"
             >
               <div className="order-2 lg:order-1 flex-1 px-6 sm:px-8 py-6 sm:py-8 flex flex-col justify-between">
@@ -58,12 +25,12 @@ export default function WorkTeaserSection() {
                   
                   <div className="flex items-center gap-3 mb-4">
                     <div
-                      className={`inline-flex h-10 w-10 items-center justify-center rounded-2xl text-lg font-semibold ${project.badgeBg}`}
+                      className={`inline-flex h-10 w-10 items-center justify-center rounded-2xl text-lg font-semibold ${project.teaser?.badgeBg ?? "bg-white/10"}`}
                     >
-                      {project.badgeIcon}
+                      {project.teaser?.badgeIcon}
                     </div>
                     <span className="text-2xl uppercase  font-extrabold text-white/50">
-                      {project.label}
+                      {project.teaser?.label}
                     </span>
                   </div>
 
@@ -71,13 +38,13 @@ export default function WorkTeaserSection() {
                     {project.name}
                   </h3>
                   <p className="mt-3 text-sm sm:text-xl text-white/70 max-w-md">
-                    {project.description}
+                    {project.teaser?.description ?? project.overview}
                   </p>
                 </div>
 
                 <div className="mt-6">
                   <Link
-                    href="/work"
+                    href={`/work/${project.slug}`}
                     className="inline-flex items-center justify-center rounded-xl bg-white text-black px-8 py-3 text-sm sm:text-base font-medium shadow-[0_18px_40px_rgba(0,0,0,0.45)] hover:bg-neutral-100 transition w-full sm:w-auto"
                   >
                     View Details
@@ -89,7 +56,7 @@ export default function WorkTeaserSection() {
                 <div className="absolute inset-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={project.image}
+                    src={project.teaser?.image ?? ""}
                     alt={project.name}
                     className="h-full w-full object-cover rounded-3xl lg:rounded-l-3xl lg:rounded-r-none"
                   />
