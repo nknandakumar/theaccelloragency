@@ -54,7 +54,7 @@ export const projects: Project[] = [
     timeline: "3 Months",
     services: ["Website", "Branding"],
     liveUrl: "/work/acme-plumbing",
-    gallery: ["/images/work/signalwire.svg", "/images/work/midnight.svg", "/images/work/midnight.svg"],
+    gallery: ["https://d2pas86kykpvmq.cloudfront.net/images/mockups/preview/MacBook+Pro+Mockups+(vol.2)/scene-9.avif", "/images/work/midnight.svg", "/images/work/midnight.svg"],
     metrics: [
       { value: "200%", label: "Increase in inquiries" },
       { value: "2.4s", label: "Faster load" },
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     timeline: "6 Weeks",
     services: ["Website"],
     liveUrl: "/work/bright-finance",
-    gallery: ["/images/work/midnight.svg", "/images/work/midnight.svg", "/images/work/signalwire.svg"],
+    gallery: ["https://cdn.dribbble.com/userupload/17139777/file/original-cc9960997a23ed0b3a994ed0a5409abe.jpg?resize=1504x1128&vertical=center", "/images/work/midnight.svg", "/images/work/signalwire.svg"],
     metrics: [
       { value: "35%", label: "Lower bounce" },
       { value: "1.8x", label: "More demo requests" },
@@ -120,7 +120,7 @@ export const projects: Project[] = [
     timeline: "4 Weeks",
     services: ["Website"],
     liveUrl: "/work/orbital-fitness",
-    gallery: ["/images/work/midnight.svg", "/images/work/signalwire.svg", "/images/work/midnight.svg"],
+    gallery: ["https://cdn.dribbble.com/userupload/21067234/file/original-e8583d2cd5501b27f57711323d7c4e69.jpg?resize=1504x1003&vertical=center", "/images/work/signalwire.svg", "/images/work/midnight.svg"],
     metrics: [
       { value: "3x", label: "Lead growth" },
       { value: "2.1x", label: "More signups" },

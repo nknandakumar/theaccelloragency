@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 type RevealOnScrollProps = {
   children: React.ReactNode;
   className?: string;
+  x?: number;
   y?: number;
   scale?: number;
   blur?: number;
@@ -17,6 +18,7 @@ type RevealOnScrollProps = {
 export default function RevealOnScroll({
   children,
   className,
+  x = 0,
   y = 56,
   scale = 0.94,
   blur = 10,
@@ -48,9 +50,10 @@ export default function RevealOnScroll({
       ctx = gsap.context(() => {
         gsap.fromTo(
           el,
-          { autoAlpha: 0, y, scale, filter: blur ? `blur(${blur}px)` : "none" },
+          { autoAlpha: 0, x, y, scale, filter: blur ? `blur(${blur}px)` : "none" },
           {
             autoAlpha: 1,
+            x: 0,
             y: 0,
             scale: 1,
             filter: "blur(0px)",
@@ -72,7 +75,7 @@ export default function RevealOnScroll({
     return () => {
       if (ctx) ctx.revert();
     };
-  }, [blur, delay, duration, once, scale, start, y]);
+  }, [blur, delay, duration, once, scale, start, x, y]);
 
   return (
     <div ref={ref} className={className}>

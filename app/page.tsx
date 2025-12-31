@@ -11,7 +11,6 @@ import ProcessSection from "@/sections/ProcessSection";
 import TestimonialsSection from "@/sections/TestimonialsSection";
 import FaqSection from "@/sections/FaqSection";
 //import SelfCheckSection from "@/sections/SelfCheckSection";
-
 export const metadata = {
   title: "TheAccellor - Website Designed to Accelarate you business",
   description:
@@ -33,6 +32,7 @@ export default function Home() {
       <ProcessSection />
       <TestimonialsSection />
       <FaqSection />
+     
     </>
   );
 }

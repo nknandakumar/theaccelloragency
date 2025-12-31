@@ -98,7 +98,7 @@ export default function ServicesSection() {
 
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-black/0" />
 
-                  <div className="absolute inset-0 z-30 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                  <div className="absolute inset-0 z-30 opacity-100 transition-opacity duration-200 md:opacity-0 md:group-hover:opacity-100">
                     <div className="absolute inset-0 bg-black/65" />
 
                     <div className="relative flex h-full w-full flex-col justify-end p-6">

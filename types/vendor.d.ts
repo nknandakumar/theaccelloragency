@@ -1,5 +1,6 @@
-declare module "lenis";
+declare module "@/components/GradualBlur" {
+  import * as React from "react";
 
-declare module "gsap";
-
-declare module "gsap/ScrollTrigger";
+  const GradualBlur: React.ComponentType<any>;
+  export default GradualBlur;
+}

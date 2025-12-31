@@ -13,13 +13,20 @@ export default function ComparisonSection() {
           lines={["We know choosing the right agency", "is tough because few truly deliver."]}
         />
 
-        <p className="mt-8 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto text-neutral-300">
-          So we made it simple to <span className="font-semibold text-white">compare</span> how we work
-          <br/><span className="inline-flex items-center justify-center text-sm font-semibold uppercase tracking-wide rounded-full bg-[#FF4A03] px-3 py-1 mr-2 align-middle">
-            versus
-          </span>
-          what you usually get <span className="text-[#FF4A03] font-semibold">in the market.</span>
-        </p>
+        <AnimatedTextMask
+          as="p"
+          className="mt-8 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto text-neutral-300"
+          lineClassName="block"
+          lines={[
+            <>
+              So we made it simple to <span className="font-semibold text-white">compare</span>
+              <br/><span className="inline-flex items-center justify-center text-sm font-semibold uppercase tracking-wide rounded-full bg-[#FF4A03] px-3 py-1 mr-2 align-middle">
+                versus
+              </span>
+              what you usually get <span className="text-[#FF4A03] font-semibold">in the market.</span>
+            </>,
+          ]}
+        />
 
         <div className="mt-14 grid gap-6 sm:gap-8 sm:grid-cols-2 items-stretch">
           <RevealOnScroll>

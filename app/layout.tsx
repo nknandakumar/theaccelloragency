@@ -6,6 +6,9 @@ import FinalCtaSection from "@/sections/FinalCtaSection";
 import FooterSection from "@/sections/FooterSection";
 import MobileBottomNav from "@/components/MobileBottomNav";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import PreloaderOverlay from "@/components/PreloaderOverlay";
+import DesktopNavLinks from "@/components/DesktopNavLinks";
+import GradualBlur from "@/components/GradualBlur";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
@@ -53,8 +56,9 @@ export default function RootLayout({
         className={`${interTight.variable} ${inter.variable} antialiased min-h-dvh bg-[#050505] pb-16 md:pb-0`}
       >
         <SmoothScrollProvider>
+          <PreloaderOverlay />
           <header className="sticky top-0 z-50 ">
-            <div className="mx-auto max-w-5xl px-2 py-2 flex justify-center">
+            <div className="mx-auto max-w-5xl px-2 py-6 flex justify-center">
               <nav className="flex w-full items-center justify-between gap-4 rounded-xl border border-white/15 bg-black/80 px-3 py-2 text-sm text-white/80 shadow-lg shadow-black/40">
                 <a
                   href="/"
@@ -70,17 +74,7 @@ export default function RootLayout({
                     priority
                   />
                 </a>
-                <div className="hidden md:flex text-xl items-center gap-8">
-                  <a href="/" className="hover:text-white transition-colors">
-                    Home
-                  </a>
-                  <a href="/work" className="hover:text-white transition-colors">
-                    Work
-                  </a>
-                  <a href="/contact" className="hover:text-white transition-colors">
-                    Contact
-                  </a>
-                </div>
+                <DesktopNavLinks />
                 <a
                   href="/contact"
                   className="inline-flex items-center gap-3 rounded-lg bg-white sm:px-4 sm:py-3 px-2 py-2 text-sm sm:text-lg font-medium text-black shadow-md hover:bg-zinc-100 transition-colors"
@@ -95,6 +89,18 @@ export default function RootLayout({
           <FooterSection />
           <MobileBottomNav />
         </SmoothScrollProvider>
+
+        <GradualBlur
+          target="page"
+          position="bottom"
+          height="6rem"
+          strength={2}
+          divCount={5}
+          curve="bezier"
+          exponential={true}
+          opacity={1}
+          className="pointer-events-none hidden md:block "
+        />
       </body>
     </html>
   );

@@ -66,11 +66,8 @@ export default function FooterSection() {
               <div>
                 <div className="text-lg uppercase tracking-wider text-white/40">{"( Legals )"}</div>
                 <div className="mt-4 space-y-2">
-                  <Link className="block text-2xl text-white/80 hover:text-white" href="/privacy-policy">
+                  <Link className="block text-2xl text-white/80 hover:text-white" href="/legal">
                     Privacy Policy
-                  </Link>
-                  <Link className="block text-2xl text-white/80 hover:text-white" href="/terms-of-service">
-                    Term of Service
                   </Link>
                 </div>
               </div>

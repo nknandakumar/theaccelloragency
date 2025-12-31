@@ -1,67 +1,80 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 
-export default function SmoothScrollProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const lenisRef = useRef<any>(null);
 
   useEffect(() => {
-    let lenis: any;
-    let tickerFn: ((time: number) => void) | undefined;
-    let gsapRef: any;
-    let scrollTriggerRef: any;
+    if (typeof window === "undefined") return;
+
+    let rafId = 0;
+    let mounted = true;
 
     const setup = async () => {
-      const { default: Lenis } = await import("lenis");
-      const gsapModule = await import("gsap");
-      const scrollTriggerModule = await import("gsap/ScrollTrigger");
+      try {
+        const LenisModule: any = await import("lenis");
+        const gsapModule = await import("gsap");
+        const scrollTriggerModule = await import("gsap/ScrollTrigger");
 
-      const gsap = gsapModule.gsap;
-      const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
+        if (!mounted) return;
 
-      gsapRef = gsap;
-      scrollTriggerRef = ScrollTrigger;
+        const Lenis = LenisModule.default;
+        const gsap = gsapModule.gsap;
+        const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
 
-      gsap.registerPlugin(ScrollTrigger);
+        gsap.registerPlugin(ScrollTrigger);
 
-      lenis = new Lenis({
-        duration: 1.2,
-        lerp: 0.1,
-        smoothWheel: true,
-        smoothTouch: false,
-      });
+        const lenis = new Lenis({
+          lerp: 0.08,
+          smoothWheel: true,
+          smoothTouch: false,
+        });
 
-      const onLenisScroll = () => {
-        ScrollTrigger.update();
-      };
+        lenisRef.current = lenis;
 
-      lenis.on("scroll", () => {
-        onLenisScroll();
-      });
+        const raf = (time: number) => {
+          lenis.raf(time);
+          rafId = window.requestAnimationFrame(raf);
+        };
 
-      tickerFn = (time: number) => {
-        lenis.raf(time * 1000);
-      };
+        rafId = window.requestAnimationFrame(raf);
 
-      gsap.ticker.add(tickerFn);
-
-      gsap.ticker.lagSmoothing(0);
-
-      lenis.scrollTo(0, { immediate: true });
-      ScrollTrigger.refresh(true);
+        ScrollTrigger.refresh();
+      } catch {
+        // no-op
+      }
     };
 
     setup();
 
     return () => {
-      if (gsapRef && tickerFn) gsapRef.ticker.remove(tickerFn);
-      if (lenis?.destroy) lenis.destroy();
+      mounted = false;
+      if (rafId) window.cancelAnimationFrame(rafId);
+      try {
+        if (lenisRef.current) lenisRef.current.destroy();
+      } catch {
+        // no-op
+      }
+      lenisRef.current = null;
     };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo(0, 0);
+    try {
+      if (lenisRef.current) lenisRef.current.scrollTo(0, { immediate: true });
+    } catch {
+      // no-op
+    }
   }, [pathname]);
 
   return <>{children}</>;

@@ -1,39 +1,53 @@
 "use client";
 
-import { useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 
-type AnimatedTextMaskProps<TTag extends keyof JSX.IntrinsicElements> = {
-  as?: TTag;
-  lines: React.ReactNode[];
+type AnimatedTextMaskProps = {
+  as?: keyof JSX.IntrinsicElements;
   className?: string;
   lineClassName?: string;
+  lines?: React.ReactNode[];
+  children?: React.ReactNode;
   stagger?: number;
-  once?: boolean;
+  duration?: number;
+  delay?: number;
   start?: string;
+  once?: boolean;
 };
 
-export default function AnimatedTextMask<TTag extends keyof JSX.IntrinsicElements = "div">({
-  as,
-  lines,
+export default function AnimatedTextMask({
+  as = "div",
   className,
   lineClassName,
+  lines,
+  children,
   stagger = 0.08,
+  duration = 0.9,
+  delay = 0,
+  start = "top 85%",
   once = true,
-  start = "top 80%",
-}: AnimatedTextMaskProps<TTag>) {
-  const Tag = (as ?? "div") as any;
+}: AnimatedTextMaskProps) {
+  const rootRef = useRef<HTMLDivElement | null>(null);
 
-  const rootRef = useRef<HTMLElement | null>(null);
-  const lineRefs = useRef<Array<HTMLSpanElement | null>>([]);
+  const Tag = as as any;
 
-  const id = useMemo(() => {
-    if (typeof crypto !== "undefined" && "randomUUID" in crypto) return crypto.randomUUID();
-    return `atm_${Math.random().toString(16).slice(2)}`;
-  }, []);
+  const effectiveLines = useMemo<React.ReactNode[]>(() => {
+    if (Array.isArray(lines)) return lines;
+    if (children !== undefined && children !== null) return [children];
+    return [];
+  }, [children, lines]);
+
+  const renderedLines = useMemo(() => {
+    return effectiveLines.map((line, i) => (
+      <span key={i} className={"block overflow-hidden"}>
+        <span className={lineClassName ?? "block will-change-transform"}>{line}</span>
+      </span>
+    ));
+  }, [effectiveLines, lineClassName]);
 
   useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
+    const root = rootRef.current;
+    if (!root) return;
 
     if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -49,25 +63,27 @@ export default function AnimatedTextMask<TTag extends keyof JSX.IntrinsicElement
 
       gsap.registerPlugin(ScrollTrigger);
 
-      const targets = lineRefs.current.filter(Boolean) as HTMLSpanElement[];
-      if (!targets.length) return;
+      const targets = Array.from(root.querySelectorAll<HTMLElement>(":scope > span > span"));
 
       ctx = gsap.context(() => {
-        gsap.set(targets, { yPercent: 120, rotate: 0.001, opacity: 0 });
-
-        gsap.to(targets, {
-          yPercent: 0,
-          opacity: 1,
-          duration: 1.05,
-          ease: "power4.out",
-          stagger,
-          scrollTrigger: {
-            trigger: el,
-            start,
-            toggleActions: once ? "play none none none" : "play none none reverse",
-          },
-        });
-      }, el);
+        gsap.fromTo(
+          targets,
+          { yPercent: 120, autoAlpha: 0 },
+          {
+            yPercent: 0,
+            autoAlpha: 1,
+            duration,
+            delay,
+            ease: "power4.out",
+            stagger,
+            scrollTrigger: {
+              trigger: root,
+              start,
+              toggleActions: once ? "play none none none" : "play none none reverse",
+            },
+          }
+        );
+      }, root);
     };
 
     setup();
@@ -75,22 +91,13 @@ export default function AnimatedTextMask<TTag extends keyof JSX.IntrinsicElement
     return () => {
       if (ctx) ctx.revert();
     };
-  }, [id, once, stagger, start]);
+  }, [delay, duration, once, stagger, start]);
 
   return (
-    <Tag ref={(node: HTMLElement | null) => (rootRef.current = node)} className={className}>
-      {lines.map((line, i) => (
-        <span key={`${id}_${i}`} className="block overflow-hidden">
-          <span
-            ref={(node) => {
-              lineRefs.current[i] = node;
-            }}
-            className={lineClassName ?? "block"}
-          >
-            {line}
-          </span>
-        </span>
-      ))}
+    <Tag className={className}>
+      <span ref={rootRef} className="block">
+        {renderedLines}
+      </span>
     </Tag>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 import AnimatedTextMask from "@/components/AnimatedTextMask";
+import RevealOnScroll from "@/components/RevealOnScroll";
 
 const faqs = [
   {
@@ -62,38 +63,37 @@ export default function FaqSection() {
             {faqs.map((item, idx) => {
               const isOpen = openIndex === idx;
               return (
-                <div
-                  key={item.q}
-                  className="rounded-2xl border border-white/10 bg-black/20 backdrop-blur-sm"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setOpenIndex(isOpen ? null : idx)}
-                    className="w-full px-5 sm:px-6 py-4 flex items-center justify-between gap-4 text-left"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="text-base sm:text-lg font-semibold text-white/70">
-                      {item.q}
-                    </span>
-                    <Plus
-                      className={`h-5 w-5 shrink-0 text-[#FF4A03] transition-transform duration-200 ${
-                        isOpen ? "rotate-45" : "rotate-0"
-                      }`}
-                    />
-                  </button>
+                <RevealOnScroll key={item.q} x={60} y={0} delay={idx * 0.08}>
+                  <div className="rounded-2xl border border-white/10 bg-black/20 backdrop-blur-sm">
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(isOpen ? null : idx)}
+                      className="w-full px-5 sm:px-6 py-4 flex items-center justify-between gap-4 text-left"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="text-base sm:text-lg font-semibold text-white/70">
+                        {item.q}
+                      </span>
+                      <Plus
+                        className={`h-5 w-5 shrink-0 text-[#FF4A03] transition-transform duration-200 ${
+                          isOpen ? "rotate-45" : "rotate-0"
+                        }`}
+                      />
+                    </button>
 
-                  <div
-                    className={`grid overflow-hidden transition-[grid-template-rows,opacity] duration-300 px-5 sm:px-6 ${
-                      isOpen ? "grid-rows-[1fr] opacity-100 pb-5" : "grid-rows-[0fr] opacity-0 pb-0"
-                    }`}
-                  >
-                    <div className="overflow-hidden">
-                      <p className="text-sm sm:text-base text-white/55 leading-relaxed">
-                        {item.a}
-                      </p>
+                    <div
+                      className={`grid overflow-hidden transition-[grid-template-rows,opacity] duration-300 px-5 sm:px-6 ${
+                        isOpen ? "grid-rows-[1fr] opacity-100 pb-5" : "grid-rows-[0fr] opacity-0 pb-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="text-sm sm:text-base text-white/55 leading-relaxed">
+                          {item.a}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </RevealOnScroll>
               );
             })}
           </div>

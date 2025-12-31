@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-const ACCENT_CLASS = "text-[#FF4A03]";
+const ACCENT_CLASS = "text-white bg-[#FF4A03]";
 
 export default function MobileBottomNav() {
   const pathname = usePathname();
@@ -15,7 +15,7 @@ export default function MobileBottomNav() {
 
   const linkClass = (active: boolean) =>
     cn(
-      "flex-1 rounded-xl px-3 py-2 text-center text-sm font-medium transition-colors",
+      "flex-1 rounded-lg px-3 py-2 text-center text-sm font-medium transition-colors",
       active ? ACCENT_CLASS : "text-white/80 hover:text-white"
     );
 
