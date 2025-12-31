@@ -37,10 +37,10 @@ export default function HeroSection() {
           delay={0.3}
           lines={["We design and build websites that attract visitors and turn them into customers, and grow your business."]}
         />
-        <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center max-[375px]:items-stretch max-[375px]:justify-start">
+        <div className="mt-8 flex flex-col min-[376px]:flex-row gap-4 justify-center max-[375px]:items-stretch max-[375px]:justify-start">
           <RevealOnScroll y={16} delay={0.4}>
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#FF4A03] px-4 py-3 sm:px-6 sm:py-3 text-white shadow-lg shadow-orange-500/20 max-[375px]:w-full max-[375px]:px-6 max-[375px]:py-4 min-h-[48px]">
-              Discuss you Idea
+              Discuss your Idea
             </Link>
           </RevealOnScroll>
           <RevealOnScroll y={16} delay={0.5}>
