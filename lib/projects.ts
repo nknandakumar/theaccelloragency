@@ -43,7 +43,7 @@ export const projects: Project[] = [
     approach:
       "Rapid design-to-development workflow using Framer, focusing on clarity, responsiveness, and performance.",
     outcome:
-      "A professional website launched within a week, helping the institution communicate clearly and look credible online.",
+      "A professional website launched within a week, helping the SAAS communicate clearly and look credible online.",
     teaser: {
       label: "01",
       description:
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     tags: ["Landing Page", "AI", "Conversion"],
     year: "2025",
     timeline: "3 Weeks",
-    services: ["Landing Page", "UI/UX", "Development"],
+    services: ["Landing Page", "UI/UX"],
     liveUrl: "https://taif.framer.ai/",
     gallery: ["https://res.cloudinary.com/dp9xxz6ww/image/upload/v1767181872/samples/agency/5c47f0c2-70a2-41d8-a70e-9c9d0744f38e_jhzjyi.png", "https://res.cloudinary.com/dp9xxz6ww/image/upload/v1767182255/samples/agency/83441f58-f770-42f4-8cb4-aa8271281e24_h74oxi.png", "https://res.cloudinary.com/dp9xxz6ww/image/upload/v1767181891/samples/agency/Screenshot_2025-12-31_171916_f4gvsw.png"],
     metrics: [
