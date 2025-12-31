@@ -114,15 +114,15 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
         </div>
 
         <div className="mt-16 sm:mt-20 space-y-12">
-          <div className="flex flex-col md:flex-row   justify-between">
-            <div className=" text-3xl text-white/40">Challenges.</div>
-            <div className="max-w-3xl text-xl text-right  sm:text-3xl text-white/65 leading-relaxed">
+          <div className="flex flex-col md:flex-row gap-4  justify-between">
+            <div className=" text-3xl text-white/40">Challenges <span className="w-4 h-4 bg-[#FF4925] rounded-sm inline-block ml-2"></span></div>
+            <div className="max-w-3xl text-xl  sm:text-3xl text-white/65 leading-relaxed">
               {project.problem}
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between">
-            <div className="text-3xl text-white/40">Solutions.</div>
+          <div className="flex flex-col md:flex-row gap-4 justify-between">
+            <div className="text-3xl text-white/40">Solutions <span className="w-4 h-4 bg-[#FF4925] rounded-sm inline-block ml-2"></span></div>
             <div className="max-w-3xl text-xl sm:text-3xl text-white/65 leading-relaxed">
               {project.approach}
             </div>
@@ -130,8 +130,8 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
 
 
-          <div className="flex flex-col md:flex-row justify-between">
-            <div className="text-3xl text-white/40">Results.</div>
+          <div className="flex flex-col md:flex-row gap-4 justify-between">
+            <div className="text-3xl text-white/40">Results <span className="w-4 h-4 bg-[#FF4925] rounded-sm inline-block ml-2"></span></div>
             <div className="max-w-3xl">
               <div className="text-xl sm:text-3xl text-white/65 leading-relaxed">
                 {project.outcome}
@@ -144,7 +144,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
                 <div className="mt-8 grid md:grid-cols-3 gap-6">
                   {(project.metrics ?? []).slice(0, 3).map((m) => (
                     <div key={m.label}>
-                      <div className="text-7xl font-semibold text-white/85 leading-none">
+                      <div className="text-5xl font-semibold text-white/85 leading-none">
                         {m.value}
                       </div>
                       <div className="mt-2 text-xl text-white/40">{m.label}</div>
@@ -190,7 +190,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
                 <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
                   <div className="relative aspect-[4/3]">
                     <Image
-                      src={p.cover ?? "/images/work/midnight.svg"}
+                      src={ `${p.teaser?.image}` }
                       alt={p.name}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
