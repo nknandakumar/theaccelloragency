@@ -1,28 +1,35 @@
+import Image from "next/image";
 import { Star } from "lucide-react";
 import AnimatedTextMask from "@/components/AnimatedTextMask";
 import RevealOnScroll from "@/components/RevealOnScroll";
 
 const testimonials = [
   {
-    name: "Mario Baskoro",
-    title: "CTO of Arjuna",
+    name: "USMS",
+    title: "Team USMS",
     quote:
-      "Our socials used to feel scattered and inconsistent. Now, everything is on-brand, engaging, and performing better.",
-    avatar: "MB",
+      "The website was delivered quickly and looks clean, modern, and professional. Exactly what we needed to get online.",
+    avatar: "u",
+    avatarSrc:
+      "https://ik.imagekit.io/6b0su29zd/Untitled%20design.png",
   },
   {
-    name: "Evelyn Widjaja",
-    title: "Marketing Lead at Bima",
+    name: "TAIF",
+    title: "Team, TAIF",
     quote:
-      "From branding to the website to social—everything was cohesive, strategic, and done with serious care.",
-    avatar: "EW",
+      "The landing page clearly explains what we do and feels sharp, modern, and purposeful.",
+    avatar: "TA",
+    avatarSrc:
+      "https://i.pinimg.com/1200x/b1/e9/3b/b1e93b4799b1ee53158398ad03f2ea30.jpg",
   },
   {
-    name: "Karina Wulandari",
-    title: "Founder at Batavia",
+    name: "REALEST",
+    title: "Team, REALEST",
     quote:
-      "Working with them felt like having an in-house team that just gets it.",
-    avatar: "KW",
+      "The website presents our properties clearly and professionally. It feels premium and easy to navigate.",
+    avatar: "RE",
+    avatarSrc:
+      "https://i.pinimg.com/564x/1f/6d/9a/1f6d9a03cab752a583d9df7235a355aa.jpg",
   },
 ];
 
@@ -62,8 +69,22 @@ export default function TestimonialsSection() {
             <RevealOnScroll key={t.name} delay={idx * 0.12}>
               <article className="rounded-2xl border border-white/10 bg-[#0b0b0b] p-6 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.45)] flex flex-col min-h-[340px]">
                 <div className="flex items-center gap-3">
-                  <div className="h-14 w-14 rounded-lg bg-white/10 border border-white/10 flex items-center justify-center text-sm font-semibold text-white/80">
-                    {t.avatar}
+                  <div className="relative h-14 w-14 rounded-lg bg-white/10 border border-white/10 overflow-hidden flex items-center justify-center text-sm font-semibold text-white/80">
+                    {t.avatarSrc ? (
+                      <Image
+                        src={t.avatarSrc}
+                        alt={t.name}
+                        fill
+                        sizes="56px"
+                        className={
+                          t.name === "REALEST"
+                            ? "object-cover"
+                            : "object-contain "
+                        }
+                      />
+                    ) : (
+                      t.avatar
+                    )}
                   </div>
                   <div>
                     <div className="font-semibold text-xl text-white/90 leading-tight">{t.name}</div>

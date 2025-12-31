@@ -52,7 +52,7 @@ const services: ServiceCard[] = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 sm:py-28 bg-[#050505] text-white">
+    <section id="services" className="py-24 sm:py-28 bg-[#050505] text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="">
           <AnimatedTextMask

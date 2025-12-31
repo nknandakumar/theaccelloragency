@@ -48,25 +48,57 @@ export default function RevealOnScroll({
       gsap.registerPlugin(ScrollTrigger);
 
       ctx = gsap.context(() => {
-        gsap.fromTo(
-          el,
-          { autoAlpha: 0, x, y, scale, filter: blur ? `blur(${blur}px)` : "none" },
-          {
-            autoAlpha: 1,
-            x: 0,
-            y: 0,
-            scale: 1,
-            filter: "blur(0px)",
-            duration,
-            delay,
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: el,
-              start,
-              toggleActions: once ? "play none none none" : "play none none reverse",
-            },
-          }
-        );
+        const fromVars = {
+          autoAlpha: 0,
+          x,
+          y,
+          scale,
+          filter: blur ? `blur(${blur}px)` : "none",
+        };
+
+        const toVars = {
+          autoAlpha: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          filter: "blur(0px)",
+          duration,
+          delay,
+          ease: "power4.out",
+          overwrite: "auto" as const,
+        };
+
+        gsap.set(el, fromVars);
+
+        let played = false;
+
+        const play = () => {
+          if (once && played) return;
+          played = true;
+          gsap.to(el, toVars);
+        };
+
+        const reset = () => {
+          if (once) return;
+          played = false;
+          gsap.set(el, fromVars);
+        };
+
+        const st = ScrollTrigger.create({
+          trigger: el,
+          start,
+          onEnter: play,
+          onEnterBack: play,
+          onLeaveBack: reset,
+        });
+
+        if (ScrollTrigger.isInViewport(el, 0.01)) {
+          play();
+        }
+
+        return () => {
+          st.kill();
+        };
       }, el);
     };
 

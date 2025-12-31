@@ -8,24 +8,24 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 
 const faqs = [
   {
-    q: "What’s your typical process for a new project?",
-    a: "We start with a quick discovery call, align on goals and scope, then move through design, development, testing, and launch with clear milestones along the way.",
+    q: "How long does a website take?",
+    a: "Usually 2–4 weeks, depending on scope. We prioritize quality and speed without cutting corners.",
   },
   {
-    q: "How long does a project usually take?",
-    a: "Most projects take 2–6 weeks depending on scope, content readiness, and required integrations. We’ll give you a clear timeline before we start.",
+    q: "Do you redesign existing websites?",
+    a: "Yes. And we fix what's actually broken — not just apply a fresh coat of paint. We analyze, strategize, then redesign for results.",
   },
   {
-    q: "Do you offer packages or custom quotes?",
-    a: "Both. If your needs are straightforward, a package works great. If you need something more specific, we’ll provide a custom quote based on scope.",
+    q: "Will my site work on mobile?",
+    a: "Absolutely. Mobile-first, always. Every site we build is responsive and optimized for all devices and screen sizes.",
   },
   {
-    q: "What’s included in a branding package?",
-    a: "Typically: logo direction, color palette, typography, and basic brand guidelines. We tailor it depending on what you need for consistent marketing and web presence.",
+    q: "Do you help with Google presence?",
+    a: "Yes — website + Google Business Profile setup included. We make sure you're found when customers search.",
   },
   {
-    q: "Can you work with our existing dev or marketing team?",
-    a: "Yes. We can plug into your team’s workflow, collaborate on strategy, and deliver design/dev assets that your team can run with.",
+    q: "What if I need changes after launch?",
+    a: "We offer ongoing support and maintenance. We don't disappear after launch — your success is our success.",
   },
 ];
 

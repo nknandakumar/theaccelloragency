@@ -33,6 +33,9 @@ export default function FooterSection() {
               <div>
                 <div className="text-lg uppercase tracking-wider text-white/40">{"( Navigation )"}</div>
                 <div className="mt-4 space-y-2">
+                    <Link className="block text-2xl text-white/80 hover:text-white" href="/">
+                    Home
+                  </Link>
                   <Link className="block text-2xl text-white/80 hover:text-white" href="/about">
                     Works
                   </Link>
@@ -42,23 +45,19 @@ export default function FooterSection() {
                   <Link className="block text-2xl text-white/80 hover:text-white" href="/#services">
                     Services
                   </Link>
-                  <Link className="block text-2xl text-white/80 hover:text-white" href="/blog">
-                    Blog
-                  </Link>
+              
                 </div>
               </div>
 
               <div>
                 <div className="text-lg uppercase tracking-wider text-white/40">{"( Social )"}</div>
                 <div className="mt-4 space-y-2">
-                  <a className="block text-2xl text-white/80 hover:text-white" href="#" rel="noreferrer">
-                    Twitter(X)
-                  </a>
-                  <a className="block text-2xl text-white/80 hover:text-white" href="#" rel="noreferrer">
-                    LinkedIn
-                  </a>
+                 
                   <a className="block text-2xl text-white/80 hover:text-white" href="#" rel="noreferrer">
                     Instagram
+                  </a>
+                   <a className="block text-2xl text-white/80 hover:text-white" href="#" rel="noreferrer">
+                    Twitter(X)
                   </a>
                 </div>
               </div>
