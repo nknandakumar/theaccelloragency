@@ -160,7 +160,7 @@ export const SkeletonTwo = () => {
     <div className="relative h-full w-full mb-1 overflow-hidden rounded-md">
       <div className="grid h-full w-full ">
         <img
-          src="https://ik.imagekit.io/6b0su29zd/521b0c7005ed9d3cc48f7d1ccdc590a7-removebg-preview.png"
+          src="https://i.pinimg.com/736x/52/1b/0c/521b0c7005ed9d3cc48f7d1ccdc590a7.jpg"
           alt="Visitors contacting 1"
           className="h-full w-full object-cover object-center"
         />
